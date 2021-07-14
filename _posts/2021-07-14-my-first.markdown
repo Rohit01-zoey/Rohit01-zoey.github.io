@@ -1,0 +1,7 @@
+The past year has really been a weird one. We have had three lockdowns and the virus seems to never be loosing. The pandemic pushed me much closer to my electronic devices which itself led me to a path of discovery. I discovered VScode( for general code like C\C++, python etc) and Atom for Julia. I also found many GUIs for Ubuntu WSL on Windows 10. (things on my bucket list to explore)
+
+I also came across Mungell for beginners (I hope to one day contribute to this).
+
+I finally started to type faster which made my coding experience much more enjoyable. 'edclub' is an amazing site to learn how to type faster and it is completely free!
+
+When it comes to the field of politics, I have enjoyed the series 'Cut The Clutter (CTC)', 'National Interest' and 'Off the Cuff' on the Print by Shekhar Gupta. 
