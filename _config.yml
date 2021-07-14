@@ -17,7 +17,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
+background-image: url('../images/gruv_waifu.jpg')
 title: Hey!!
 email: rohitkvartak4@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"

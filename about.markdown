@@ -22,7 +22,7 @@ I love to discuss tech stuff.... cars, phones ( and before you can argue with me
 
 Apart from this I love to play sports. I play basketball and tennis but still love to play other sports. I love to go jogging and absolutely love gyming (my favourite exercise :) )
 
-I like watching anime, K-dramas, romantic and comedy movies. I love watching cringy stuff (like K-dramas). Though still I prefer shows like Rick and Morty or Paradise PD. My all time favorite songs are 'Keii' by AnuelAA and 'Solid Gold' by PNAU.
+I like watching anime, K-dramas, romantic and comedy movies. I love watching cringy stuff (like K-dramas). Though still I prefer shows like Rick and Morty or Paradise PD. My all time favorite songs are 'Keii' by AnuelAA and 'Solid Gold' by PNAU. I also love to do Origami....sadly the papar available in India for origami is very limited and very expensive, so I have managed to do only a few models. I love modular origami- ones similar to Meenakshki Mukherjee or Ekaterina Lukasheva. Though, I always wanted to do more models.
 
 
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
