@@ -24,4 +24,4 @@ I am a fifth-year undergraduate at the Indian Institute of Technology, Bombay, p
 
 My research interests lie in meta-learning and active distillation, focusing on developing algorithms with broad applicability in real-world scenarios.
 
-Currently, I am working under the mentorship of Prof. Ganesh Ramakrishnan at IIT Bombay, in collaboration with Google Research, India, and Pradeep Shenoy.
+Currently, I am working under the mentorship of Prof. Ganesh Ramakrishnan at IIT Bombay, in collaboration with Pradeep Shenoy at Google Research, India.
