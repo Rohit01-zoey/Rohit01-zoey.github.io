@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='#'>IIT Bombay</a> Exploring the Unknown, One Algorithm at a Time. 
 
 profile:
   align: right
