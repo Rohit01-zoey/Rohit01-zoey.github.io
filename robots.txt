@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://Rohit01-zoey.github.io/sitemap.xml
