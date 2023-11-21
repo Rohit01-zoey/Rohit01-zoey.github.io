@@ -15,9 +15,13 @@ profile:
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-Hi, I am a Fifth year undergraduate at the Indian Institute of Technology, Bombay.  I am pursuing my Electrical Engineering with a specialization in Machine Learning.
+Hello,
 
-My research interests include meta-learning and active distillation. I want to create algorithms which span the breadth of machine learning wih a special focus on their real world applicability.
+I am a fifth-year undergraduate at the Indian Institute of Technology, Bombay, pursuing Electrical Engineering with a specialization in Machine Learning.
+
+My research interests lie in meta-learning and active distillation, focusing on developing algorithms with broad applicability in real-world scenarios.
+
+Currently, I am working under the mentorship of Prof. Ganesh Ramakrishnan at IIT Bombay, in collaboration with Google Research, India, and Pradeep Shenoy.
