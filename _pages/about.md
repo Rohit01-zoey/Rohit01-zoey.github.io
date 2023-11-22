@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>IIT Bombay</a> Exploring the Unknown, One Algorithm at a Time. 
+subtitle: <a href='https://www.iitb.ac.in/'>IIT Bombay</a> | Exploring the Unknown, One Algorithm at a Time. 
 
 profile:
   align: right
@@ -22,6 +22,6 @@ Hello,
 
 I am a fifth-year undergraduate at the Indian Institute of Technology, Bombay, pursuing Electrical Engineering with a specialization in Machine Learning.
 
-My research interests lie in meta-learning and active distillation, focusing on developing algorithms with broad applicability in real-world scenarios.
+My research interests lie in meta-learning and active distillation. I am particulary focused on developing algorithms with broad applicability in real-world scenarios.
 
-Currently, I am working under the mentorship of Prof. Ganesh Ramakrishnan at IIT Bombay, in collaboration with Pradeep Shenoy at Google Research, India.
+Currently, I am working under the mentorship of Prof. [Ganesh Ramakrishnan](https://www.cse.iitb.ac.in/~ganesh/) at IIT Bombay, in collaboration with [Pradeep Shenoy](https://sites.google.com/site/pshenoyuw/) at Google Research, India.
