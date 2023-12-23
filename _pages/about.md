@@ -22,6 +22,6 @@ Hello,
 
 I am a fifth-year undergraduate at the Indian Institute of Technology, Bombay, pursuing Electrical Engineering with a specialization in Machine Learning.
 
-My research interests lie in meta-learning and active distillation. I am particulary focused on developing algorithms with broad applicability in real-world scenarios.
+My research experience has taught me how important it is for machine learning technoilogies to work well in real life, not just in theory. I'm particularly interested in making sure that ML algorithms are reliable, easy to use on a large scale, and fair.
 
-Currently, I am working under the mentorship of Prof. [Ganesh Ramakrishnan](https://www.cse.iitb.ac.in/~ganesh/) at IIT Bombay, in collaboration with [Pradeep Shenoy](https://sites.google.com/site/pshenoyuw/) at Google Research, India.
+Currently, I am working under the supervison of Prof. [Ganesh Ramakrishnan](https://www.cse.iitb.ac.in/~ganesh/) at IIT Bombay and [Pradeep Shenoy](https://sites.google.com/site/pshenoyuw/) at Google Research, India.
