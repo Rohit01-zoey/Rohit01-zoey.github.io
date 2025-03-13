@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://www.iitb.ac.in/'>IIT Bombay</a> | Exploring the Unknown, One Algorithm at a Time. 
+subtitle: <a href='https://duke.edu'>Duke University</a> | Not a slightest clue in life
 
 profile:
   align: right
@@ -18,10 +18,12 @@ latest_posts: true  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-Hello,
+I am a **second-year M.S. student in Computer Science** at **Duke University**.  
 
-I am a fifth-year undergraduate at the Indian Institute of Technology, Bombay, pursuing Electrical Engineering with a specialization in Machine Learning.
+I am currently part of **[CERT Labs](https://github.com/CERT-Lab)**, working under **[Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/)** at **Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)**, where my focus is on **reducing the memory utilization of large language models (LLMs)**.  
 
-My research experience has taught me how important it is for machine learning technologies to work well in real life, not just in theory. I'm particularly interested in making sure that ML algorithms are reliable, easy to use on a large scale, and fair.
+Additionally, I am advised by **[Prof. Monica Agrawal](https://www.monicaagrawal.com/)** at **Duke University**, where I work on **studying and improving medical chatbots** to enhance their accuracy and real-world usability.  
 
-Currently, I am working under the supervison of Dr. [Pradeep Shenoy](https://sites.google.com/site/pshenoyuw/) at Google Research, India and Prof. [Ganesh Ramakrishnan](https://www.cse.iitb.ac.in/~ganesh/) at IIT Bombay and . Additionally, I am also working with Dr. [Praneeth Vepakomma](https://praneeth.mit.edu).
+Still figuring out what truly excites me, but I’ll probably update this when I do! 🫠  
+
+Feel free to explore my work and reach out! 🚀  
