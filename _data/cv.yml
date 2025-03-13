@@ -11,9 +11,9 @@
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: MS in Computer Science
+      institution: Duke University, Durham, North Carolina, US
+      year: 2024 - 2026
       description:
         - Description 1.
         - Description 2.
@@ -21,12 +21,11 @@
           contents:
             - Sub-description 1.
             - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+    - title: Masters in Artificial Intelligence and Data Science
+      institution: Indian Institute of Technology, Bombay, India
+      year: 2019 - 2024
       description:
-        - Description 1.
-        - Description 2.
+        - As part of my Master's thesis at IIT Bombay, I worked on improving performance of Knowldge Distillation using mixup.
 
 - title: Experience
   type: time_table
