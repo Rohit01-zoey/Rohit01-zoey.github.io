@@ -1,7 +1,7 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
+title: HiRA-SB
+description: Federated Silver Bullet for HiRA (PEFT)
 img: assets/img/12.jpg
 importance: 1
 category: work
@@ -46,6 +46,9 @@ To give your project a background in the portfolio page, just add the img tag to
 
 You can also put regular text between your rows of images.
 Say you wanted to write a little bit about your project before you posted the rest of the images.
+
+Does math work?
+$$f(x) = \frac{x}{y}$$
 You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
 
 
