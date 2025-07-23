@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: all my B.S. that reviewers were kind enough to go through and accept in their conferences 
+description: list of publications
 nav: true
 nav_order: 1
 ---
