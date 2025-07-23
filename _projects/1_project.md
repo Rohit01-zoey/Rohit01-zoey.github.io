@@ -53,6 +53,13 @@ $$
 f(x) = \frac{x}{y}
 $$
 
+\begin{equation}
+\label{eq:cauchy-schwarz}
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+\end{equation}
+
+Let us see if i can cite Eqn. ($\eqref{eq:cauchy-schwarz}$)
+
 You describe how you toiled, sweated, *bled* for your project, and then... you reveal its glory in the next row of images.
 
 
