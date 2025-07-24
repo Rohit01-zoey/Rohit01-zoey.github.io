@@ -1,7 +1,7 @@
 ---
 layout: page
 title: HiRA-SB
-description: Federated Silver Bullet for HiRA (PEFT)
+description: A Silver Bullet for HiRA (PEFT)
 img: assets/img/12.jpg
 importance: 1
 category: abandoned
