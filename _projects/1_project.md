@@ -1,11 +1,12 @@
 ---
-layout: page
+layout: distil
 title: HiRA-SB
 description: A Silver Bullet for HiRA (PEFT)
 img: assets/img/12.jpg
 importance: 1
 category: abandoned
-related_publications: einstein1956investigations, einstein1950meaning
+
+bibliography: project_1.bib
 
 toc:
   - name: Overview
