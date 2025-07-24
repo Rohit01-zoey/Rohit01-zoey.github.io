@@ -4,7 +4,7 @@ title: HiRA-SB
 description: Federated Silver Bullet for HiRA (PEFT)
 img: assets/img/12.jpg
 importance: 1
-category: work
+category: abandoned
 related_publications: einstein1956investigations, einstein1950meaning
 ---
 
