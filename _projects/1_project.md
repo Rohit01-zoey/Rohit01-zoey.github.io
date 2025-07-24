@@ -1,5 +1,5 @@
 ---
-layout: distil
+layout: distill
 title: HiRA-SB
 description: A Silver Bullet for HiRA (PEFT)
 img: assets/img/12.jpg
