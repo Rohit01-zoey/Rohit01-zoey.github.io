@@ -25,7 +25,7 @@ toc:
 
 # Overview
 
-Hadamard-based high-rank adaptation (HiRA {% cite hu2021loralowrankadaptationlarge %}) has shown empirical advantages over low-rank methods like LoRA, but it remains unclear whether HiRA can match the effectiveness of full fine-tuning under tight parameter constraints. In this work, we take a step toward bridging this gap with *HiRA Silver Bullet (HiRA-SB)*, a parameter-efficient fine-tuning scheme that aims to replicate the dynamics of full fine-tuning within the Hadamard-adapted space. HiRA-SB explores a constrained parametrization and initialization scheme designed to preserve high-rank gradient directions while stabilizing training. This work is an attempt to understand whether full fine-tuning can be effectively simulated within Hadamard subspaces, and what structural constraints are necessary for that goal.
+Hadamard-based high-rank adaptation (HiRA <d-cite key="hu2021loralowrankadaptationlarge"></d-cite>) has shown empirical advantages over low-rank methods like LoRA, but it remains unclear whether HiRA can match the effectiveness of full fine-tuning under tight parameter constraints. In this work, we take a step toward bridging this gap with *HiRA Silver Bullet (HiRA-SB)*, a parameter-efficient fine-tuning scheme that aims to replicate the dynamics of full fine-tuning within the Hadamard-adapted space. HiRA-SB explores a constrained parametrization and initialization scheme designed to preserve high-rank gradient directions while stabilizing training. This work is an attempt to understand whether full fine-tuning can be effectively simulated within Hadamard subspaces, and what structural constraints are necessary for that goal.
 
 ---
 
