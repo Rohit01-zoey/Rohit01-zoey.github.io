@@ -23,15 +23,15 @@ toc:
   - name: References
 ---
 
-# Overview
+## Overview
 
 Hadamard-based high-rank adaptation (HiRA <d-cite key="huang2025hira"></d-cite>) has shown empirical advantages over low-rank methods like LoRA, but it remains unclear whether HiRA can match the effectiveness of full fine-tuning under tight parameter constraints. In this work, we take a step toward bridging this gap with *HiRA Silver Bullet (HiRA-SB)*, a parameter-efficient fine-tuning scheme that aims to replicate the dynamics of full fine-tuning within the Hadamard-adapted space. HiRA-SB explores a constrained parametrization and initialization scheme designed to preserve high-rank gradient directions while stabilizing training. This work is an attempt to understand whether full fine-tuning can be effectively simulated within Hadamard subspaces, and what structural constraints are necessary for that goal.
 
 ---
 
-# Brief overview of Methods we use
+## Brief overview of Methods we use
 
-## HiRA-LoRA
+### HiRA-LoRA
 
 HiRA adopts the hadamard product to modulate the low-rank LoRA style update. We thus have the following update
 \begin{equation}
@@ -39,15 +39,15 @@ HiRA adopts the hadamard product to modulate the low-rank LoRA style update. We 
 W = W_0 + W_0 \odot (BA) \;\; \text{where $\odot$ is the hadamard product}
 \end{equation}
 
-## LoRA-SB
+### LoRA-SB
 
 LoRA-SB (cite) attempts to inialize such that the intial gradietn matches the full FT gradeint -- explain
 
-# Attempt
+## Attempt
 
 To compute the appropriate initialization, we need to compute the gradients of HiRA update. 
 
-## Preliminaries (some math)
+### Preliminaries (some math)
 We have the following gradient
 
 \begin{equation}

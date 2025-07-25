@@ -5,7 +5,7 @@ permalink: /projects/
 description: A growing collection of projects some which I am currently working on and some abandoned.
 nav: true
 nav_order: 2
-display_categories: [current, abandoned, completed]
+display_categories: [current, completed, abandoned]
 horizontal: false
 ---
 
