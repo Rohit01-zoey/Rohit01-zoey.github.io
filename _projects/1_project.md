@@ -39,6 +39,26 @@ HiRA adopts the hadamard product to modulate the low-rank LoRA style update. We 
 W = W_0 + W_0 \odot (BA) \;\; \text{where $\odot$ is the hadamard product}
 \end{equation}
 
+## LoRA-SB
+
+LoRA-SB (cite) attempts to inialize such that the intial gradietn matches the full FT gradeint -- explain
+
+# Attempt
+
+To compute the appropriate initialization, we need to compute the gradients of HiRA update. 
+
+## Preliminaries (some math)
+We have the following gradient
+
+\begin{equation}
+    \frac{\partial  (W_{0,ij} \cdot f(X)_{ij})}{\partial X_{pq}} = \begin{cases}
+        0 & \text{if \(i \ne p\) and \(j \ne q\)}\\
+        W_{0, pq}\cdot\frac{\partial f(X)_{ij}}{\partial X_{pq}} & \text{if \(i=p\) and \(j=q\)}
+    \end{cases}
+\end{equation}
+
+Simply put we compute the gradient elementwise.
+
 Every project has a beautiful feature showcase page.
 It's easy to include images in a flexible 3-column grid format.
 Make your photos 1/3, 2/3, or full width.

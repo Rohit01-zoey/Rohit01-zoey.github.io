@@ -5,7 +5,7 @@
     "image": "",
     "email": "rohitkvartak4@gmail.com",
     "phone": "xxxxxxxxx",
-    "url": "https://alshedivat.github.io/al-folio/",
+    "url": "https://rohit01-zoey.github.io",
     "summary": "Currently a Masters student at Duke University, I am currently exploring LLMs and NLP space. See the pdf icon above for my resume!",
     "location": {
       "address": "2712 Broadway St",
@@ -34,29 +34,34 @@
       "endDate": "2026-04-15",
       "score": "",
       "courses": [
-        "NLP"
+        "NLP", "LLMs"
       ]
+    },
+    {
+      "institution": "Indian Institute of Technology Bombay",
+      "url": "https://www.duke.edu",
+      "area": "Electrical Engineering",
+      "studyType": "B.Tech",
+      "startDate": "2019-08-26",
+      "endDate": "2024-06-15",
+      "score": "9.02"
+    },
+    {
+      "institution": "Indian Institute of Technology Bombay",
+      "url": "https://www.duke.edu",
+      "area": "Machine Learning and Data Science",
+      "studyType": "M.Tech",
+      "startDate": "2019-08-26",
+      "endDate": "2024-06-15",
+      "score": "9.02"
     }
   ],
   "awards": [],
   "certificates": [],
   "publications": [],
   "skills": [],
-  "languages": [
-    {
-      "language": "English",
-      "fluency": "Fluent"
-    },
-    {
-      "language": "Hindi",
-      "fluency": "Fluent"
-    },
-    {
-      "language": "Marathi",
-      "fluency": "Fluent"
-    }
-  ],
-  "interests": [],
+  "languages": [],
+  "interests": ["Trustworthy AI", "Efficiency in MLLMs"],
   "references": [],
   "projects": []
 }
