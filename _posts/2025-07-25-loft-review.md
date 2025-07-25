@@ -3,6 +3,7 @@ layout: distill
 title: LoFT - Low-Rank Adaptation That Behaves Like Full Fine-Tuning
 description: A review of LoFT (an attempt rather)
 tags: reviews math
+categories: paper-reviews
 giscus_comments: true
 date: 2025-07-25
 featured: true
