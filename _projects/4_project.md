@@ -32,14 +32,14 @@ Empirically, ABBA achieves state-of-the-art results on arithmetic and commonsens
 
 In this section, we introduce ABBA and motivate it in the next section.
 
-<div class="row">
+<div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html loading="eager" path="assets/abba/abba_new.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/abba/abba_new.png" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html loading="eager" path="assets/abba/loss_landscape_2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/abba/loss_landscape_2.png" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-     *Left*: Illustration of ABBA’s parameterization, where the update is expressed as the Hadamard product of two learnable low-rank matrices. *Right*: A toy experiment demonstrating ABBA’s optimization behavior. We first train a 2-layer MLP to classify the first 8 MNIST digits, then fine-tune it to recognize the last 2. ABBA converges faster and achieves better final performance.
+   *Left*: Illustration of ABBA’s parameterization, where the update is expressed as the Hadamard product of two learnable low-rank matrices. *Right*: A toy experiment demonstrating ABBA’s optimization behavior. We first train a 2-layer MLP to classify the first 8 MNIST digits, then fine-tune it to recognize the last 2. ABBA converges faster and achieves better final performance.
 </div>
