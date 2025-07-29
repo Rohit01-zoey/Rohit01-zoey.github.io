@@ -2,7 +2,7 @@
 layout: distill
 title: ABBA
 description: Hadamard style update for LoRA
-img: assets/img/12.jpg
+img: assets/img/abba/abba_new.png
 importance: 1
 category: completed
 
