@@ -47,7 +47,9 @@ Empirically, ABBA achieves state-of-the-art results on arithmetic and commonsens
 
 ### ABBA
 
-In this section, we introduce ABBA and motivate it in the next section.
+We asked a natural question: *what if* we no longer kept $W_0$ frozen? *What if* we made it fully trainable? Unfortunately, this brings us right back to the original challenge of full fine-tuning 😞 — expensive and inefficient. So instead, we apply the classic LoRA trick: decompose the second “frozen” adaptor into a low-rank form and make **that** trainable. This gives rise to the following update:
+
+
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
