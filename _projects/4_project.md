@@ -31,7 +31,9 @@ Empirically, ABBA achieves state-of-the-art results on arithmetic and commonsens
 ## Methods
 
 ### Full fine-tuning and other LoRA methods
-**Full fine-tuning**: Given a pre-trained weight matrix \( W_0 \in \mathbb{R}^{m \times n} \), full FT updates all parameters via \( W = W_0 + \Delta W \), introducing \( m \times n \) trainable parameters per layer. This quickly becomes impractical due to the high memory and compute overhead.
+**Full fine-tuning**: Given a pre-trained weight matrix $W_0 \in \mathbb{R}^{m \times n}$, full FT updates all parameters via $W = W_0 + \Delta W$, introducing $m \times n$ trainable parameters per layer. This quickly becomes impractical due to the high memory and compute overhead.
+
+**LoRA**<d-cite key="lora"></d-cite>: LoRA mitigates this by modeling the update as a low-rank decomposition: $\Delta W = sBA$, where $B \in \mathbb{R}^{m \times r}$, $A \in \mathbb{R}^{r \times n}$, and $s$ is a scaling factor. This reduces the number of trainable parameters to $r(m + n)$, with $r \ll \min(m, n)$. LoRA can represent any update of rank at most $r$, but cannot express higher-rank updates. Moreover, the projected gradient onto the weight space is also low-rank. While effective for simpler tasks, this limitation becomes significant in settings requiring high-rank updates or gradients <d-cite key="LoRA-Pro"></d-cite><d-cite key="ponkshe2025initializationusingupdateapproximation"></d-cite>.
 
 ### ABBA
 
