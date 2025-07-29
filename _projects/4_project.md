@@ -18,7 +18,9 @@ toc:
     subsections:
         - name: Full fine-tuning and other LoRA methods
         - name: ABBA
-  - name: Attempt
+  - name: Practical stuff while implementing ABBA
+    subsections:
+        - name: Implementing ABBA efficiently
   - name: Conclusion
   - name: References
 ---
@@ -45,6 +47,8 @@ Empirically, ABBA achieves state-of-the-art results on arithmetic and commonsens
   $$
 </div>
 
+_(By the way, the Hadamard product is surprisingly interesting — not as trivial as I initially thought. I wrote a bit more about it [here](../hadamard-musings) if you're curious about some of the side paths I explored while working on this idea.)_
+
 ### ABBA
 
 We asked a natural question: *what if* we no longer kept $W_0$ frozen? *What if* we made it fully trainable? Unfortunately, this brings us right back to the original challenge of full fine-tuning 😞 — expensive and inefficient. So instead, we apply the classic LoRA trick: decompose the second “frozen” adaptor into a low-rank form and make **that** trainable. This gives rise to the following update:
@@ -52,8 +56,8 @@ We asked a natural question: *what if* we no longer kept $W_0$ frozen? *What if*
 \begin{equation}
 \Delta W = s(B_1 A_1) \odot (B_2 A_2),
 \end{equation}
-where \( B_1 \in \mathbb{R}^{m \times r_1},\; A_1 \in \mathbb{R}^{r_1 \times n} \) and  
-\( B_2 \in \mathbb{R}^{m \times r_2},\; A_2 \in \mathbb{R}^{r_2 \times n} \), with \( r_1, r_2 \ll \min(m, n) \) and $s$ is a scaling factor for stability.
+where $B_1 \in \mathbb{R}^{m \times r_1},\; A_1 \in \mathbb{R}^{r_1 \times n}$ and  
+$B_2 \in \mathbb{R}^{m \times r_2},\; A_2 \in \mathbb{R}^{r_2 \times n}$, with $r_1, r_2 \ll \min(m, n)$ and $s$ is a scaling factor for stability.
 
 **# of Parameters** $= (r_1 + r_2)(m+n)$ 
 
@@ -73,3 +77,7 @@ Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter bu
 <div class="caption">
    <strong>Left</strong>: Illustration of ABBA’s parameterization, where the update is expressed as the Hadamard product of two learnable low-rank matrices. <strong>Right</strong>: A toy experiment demonstrating ABBA’s optimization behavior. We first train a 2-layer MLP to classify the first 8 MNIST digits, then fine-tune it to recognize the last 2. ABBA converges faster and achieves better final performance.
 </div>
+
+## Practical stuff while implementing ABBA
+
+### Implementing ABBA efficiently
