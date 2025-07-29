@@ -35,7 +35,7 @@ Empirically, ABBA achieves state-of-the-art results on arithmetic and commonsens
 
 **LoRA**<d-cite key="lora"></d-cite>: LoRA mitigates this by modeling the update as a low-rank decomposition: $\Delta W = sBA$, where $B \in \mathbb{R}^{m \times r}$, $A \in \mathbb{R}^{r \times n}$, and $s$ is a scaling factor. This reduces the number of trainable parameters to $r(m + n)$, with $r \ll \min(m, n)$. LoRA can represent any update of rank at most $r$, but cannot express higher-rank updates. Moreover, the projected gradient onto the weight space is also low-rank. While effective for simpler tasks, this limitation becomes significant in settings requiring high-rank updates or gradients <d-cite key="LoRA-Pro"></d-cite><d-cite key="ponkshe2025initializationusingupdateapproximation"></d-cite>.
 
-**HiRA (Hadamard High-Rank Adaptation)**<d-cite key="huang2025hira"></d-cite>: HiRA improves upon LoRA by applying a Hadamard product between the pre-trained weight $W_0$ and a low-rank update $BA$, enabling effective update ranks up to $r_0 r$ (see Thm 1 - a well known result). This improves on LoRA’s expressivity limits. However, because the update is element-wise tied to $W_0$, HiRA's expressiveness is constrained to its support, which may hinder generalization—especially out-of-domain.
+**HiRA (Hadamard High-Rank Adaptation)**<d-cite key="huang2025hira"></d-cite>: HiRA improves upon LoRA by applying a Hadamard product between the pre-trained weight $W_0$ and a low-rank update $BA$, enabling effective update ranks up to $r_0 r$ (see Thm (1) - a well known result). This improves on LoRA’s expressivity limits. However, because the update is element-wise tied to $W_0$, HiRA's expressiveness is constrained to its support, which may hinder generalization—especially out-of-domain.
 
 <div class="theorem">
   <strong>Theorem 1.</strong>
@@ -49,6 +49,17 @@ Empirically, ABBA achieves state-of-the-art results on arithmetic and commonsens
 
 We asked a natural question: *what if* we no longer kept $W_0$ frozen? *What if* we made it fully trainable? Unfortunately, this brings us right back to the original challenge of full fine-tuning 😞 — expensive and inefficient. So instead, we apply the classic LoRA trick: decompose the second “frozen” adaptor into a low-rank form and make **that** trainable. This gives rise to the following update:
 
+\begin{equation}
+\Delta W = s(B_1 A_1) \odot (B_2 A_2),
+\end{equation}
+where \( B_1 \in \mathbb{R}^{m \times r_1},\; A_1 \in \mathbb{R}^{r_1 \times n} \) and  
+\( B_2 \in \mathbb{R}^{m \times r_2},\; A_2 \in \mathbb{R}^{r_2 \times n} \), with \( r_1, r_2 \ll \min(m, n) \) and $s$ is a scaling factor for stability.
+
+**# of Parameters** $= (r_1 + r_2)(m+n)$ 
+
+**Rank we can express** $= r_1 r_2$ (using Thm (1) again 👀)
+
+Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter budget as our baselines but also can represent matrices till rank $\frac{r^2}{4}$ (i.e maximizing the rank max)
 
 
 <div class="row mt-3">
