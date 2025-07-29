@@ -34,10 +34,10 @@ In this section, we introduce ABBA and motivate it in the next section.
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/abba/abba_new.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html loading="eager" path="assets/abba/abba_new.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/abba/loss_landscape_2.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html loading="eager" path="assets/abba/loss_landscape_2.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
