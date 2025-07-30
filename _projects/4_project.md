@@ -91,7 +91,6 @@ $$
 where $\odot_r$ denotes the row-wise Khatri–Rao product.
 </div>
 
-How does Thm (2) enable efficiency for ABBA? If we used the first form notice we would need to compute $B_1 \odot A_1$ and $B_2 \odot A_2$ i.e. full $m \times n$ which is just as bad as full FT. Thm (2) is basically just the LoRA structure (_its not the same space by the way see below_). So now we can do $\Delta x = B_{kr}(A_{kr}x)$ where $X_{kr} = (X_1 \odot_r X_2)$.
 
 
 At first glance, applying the Hadamard product directly to two LoRA-style updates — like computing $$ (B_1 A_1) \odot (B_2 A_2) $$ — seems like a nightmare: you’d have to materialize full $$ m \times n $$ matrices, which is as costly as full fine-tuning. That’s clearly not scalable.
@@ -116,5 +115,5 @@ A natural question to ask after seeing **Theorem 2** is:
 why not just apply an SVD-style or LoRA-style decomposition directly on the full Hadamard product and solve for matrices $ A_{\text{kr}} $ and $ B_{\text{kr}} $?
 
 In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if it were just another low-rank matrix approximation. But here’s the catch:  
-you’d only recover the *combined* structure (i.e., the product $B_{\text{kr}} A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $.
+you’d only recover the *combined* structure (i.e., the matrices $B_{\text{kr}}$ and $A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $.
 
