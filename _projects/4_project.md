@@ -66,18 +66,6 @@ $B_2 \in \mathbb{R}^{m \times r_2},\; A_2 \in \mathbb{R}^{r_2 \times n}$, with $
 
 Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter budget as our baselines but also can represent matrices till rank $\frac{r^2}{4}$ (i.e maximizing the rank max)
 
-<!-- <div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/abba/abba_new.png" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/abba/loss_landscape_2.png" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-   <strong>Left</strong>: Illustration of ABBA’s parameterization, where the update is expressed as the Hadamard product of two learnable low-rank matrices. <strong>Right</strong>: A toy experiment demonstrating ABBA’s optimization behavior. We first train a 2-layer MLP to classify the first 8 MNIST digits, then fine-tune it to recognize the last 2. ABBA converges faster and achieves better final performance.
-</div> -->
-
 ## Practical stuff while implementing ABBA
 
 ### Implementing ABBA efficiently
@@ -117,3 +105,19 @@ why not just apply an SVD-style or LoRA-style decomposition directly on the full
 In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if it were just another low-rank matrix approximation. But here’s the catch:  
 you’d only recover the *combined* structure (i.e., the matrices $B_{\text{kr}}$ and $A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $.
 
+
+
+
+## Supplementary 
+
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/abba/abba_new.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html path="assets/img/abba/loss_landscape_2.png" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+   <strong>Left</strong>: Illustration of ABBA’s parameterization, where the update is expressed as the Hadamard product of two learnable low-rank matrices. <strong>Right</strong>: A toy experiment demonstrating ABBA’s optimization behavior. We first train a 2-layer MLP to classify the first 8 MNIST digits, then fine-tune it to recognize the last 2. ABBA converges faster and achieves better final performance.
+</div>

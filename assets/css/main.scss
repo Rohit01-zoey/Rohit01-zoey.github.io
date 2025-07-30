@@ -18,3 +18,12 @@ $max-content-width: {{ site.max_width }};
   "font-awesome/solid",
   "font-awesome/regular"
 ;
+
+.theorem-box {
+  background-color: #e7f1fb; /* light blue background */
+  border-left: 4px solid #1f77b4; /* darker blue side border */
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+}
