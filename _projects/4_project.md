@@ -40,7 +40,7 @@ Empirically, ABBA achieves state-of-the-art results on arithmetic and commonsens
 
 **HiRA (Hadamard High-Rank Adaptation)**<d-cite key="huang2025hira"></d-cite>: HiRA improves upon LoRA by applying a Hadamard product between the pre-trained weight $W_0$ and a low-rank update $BA$, enabling effective update ranks up to $r_0 r$ (see Thm (1) - a well known result). This improves on LoRA’s expressivity limits. However, because the update is element-wise tied to $W_0$, HiRA's expressiveness is constrained to its support, which may hinder generalization—especially out-of-domain.
 
-<div class="theorem">
+<div class="theorem-box">
   <strong>Theorem 1.</strong>
   Suppose $W_1$ and $W_2$ are matrices of rank $r_1$ and $r_2$ respectively. Then
   $$
@@ -70,7 +70,7 @@ Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter bu
 
 ### Implementing ABBA efficiently
 
-<div class="theorem">
+<div class="theorem-box">
   <strong>Theorem 2.</strong><d-cite key="slyusar1997new"></d-cite>
   Let $B_1 A_1, B_2 A_2 \in \mathbb{R}^{m \times n}$. Then,
 $$
@@ -99,11 +99,10 @@ So we preserve the low-rank efficiency, avoid full matrix computation, and still
 
 ### ABBA space is not the LoRA space
 
-A natural question to ask after seeing **Theorem 2** is:  
-why not just apply an SVD-style or LoRA-style decomposition directly on the full Hadamard product and solve for matrices $ A_{\text{kr}} $ and $ B_{\text{kr}} $?
+A natural question to ask after seeing **Theorem 2** is: why not just apply an SVD-style or LoRA-style decomposition directly on the full Hadamard product and solve for matrices $ A_{\text{kr}} $ and $ B_{\text{kr}} $?
 
-In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if it were just another low-rank matrix approximation. But here’s the catch:  
-you’d only recover the *combined* structure (i.e., the matrices $B_{\text{kr}}$ and $A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $.
+In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if it were just another low-rank matrix approximation. But here’s the catch: you’d only recover the *combined* structure (i.e., the matrices $B_{\text{kr}}$ and $A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $. And this is easy to see since each row of the matrix $(B_1 \odot_r B_2)$ belongs to the Segre Variety $\mathcal{S}_{r_1r_2}$ - which is just a fancy way of saying that the space is consists of rank 1 tensors. Think about it $[3,4,6,8] = [1,2] \odot_r [3,4]$ but $[3,4,6,9]$ can't be represented of the form $u \otimes_r v$.
+
 
 
 
