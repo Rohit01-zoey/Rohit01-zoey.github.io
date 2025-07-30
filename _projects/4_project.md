@@ -65,8 +65,7 @@ $B_2 \in \mathbb{R}^{m \times r_2},\; A_2 \in \mathbb{R}^{r_2 \times n}$, with $
 
 Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter budget as our baselines but also can represent matrices till rank $\frac{r^2}{4}$ (i.e maximizing the rank max)
 
-
-<div class="row mt-3">
+<!-- <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html path="assets/img/abba/abba_new.png" class="img-fluid rounded z-depth-1" %}
     </div>
@@ -76,8 +75,45 @@ Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter bu
 </div>
 <div class="caption">
    <strong>Left</strong>: Illustration of ABBA’s parameterization, where the update is expressed as the Hadamard product of two learnable low-rank matrices. <strong>Right</strong>: A toy experiment demonstrating ABBA’s optimization behavior. We first train a 2-layer MLP to classify the first 8 MNIST digits, then fine-tune it to recognize the last 2. ABBA converges faster and achieves better final performance.
-</div>
+</div> -->
 
 ## Practical stuff while implementing ABBA
 
 ### Implementing ABBA efficiently
+
+<div class="theorem">
+  <strong>Theorem 2.</strong><d-cite key="slyusar1997new"></d-cite>
+  Let $B_1 A_1, B_2 A_2 \in \mathbb{R}^{m \times n}$. Then,
+$$
+(B_1 A_1) \odot (B_2 A_2) = \underbrace{(B_1 \odot_r B_2)}_{m \times r_1 r_2} \underbrace{(A_1^\top \odot_r A_2^\top)^\top}_{r_1 r_2 \times n},
+$$
+where $\odot_r$ denotes the row-wise Khatri–Rao product.
+</div>
+
+How does Thm (2) enable efficiency for ABBA? If we used the first form notice we would need to compute $B_1 \odot A_1$ and $B_2 \odot A_2$ i.e. full $m \times n$ which is just as bad as full FT. Thm (2) is basically just the LoRA structure (_its not the same space by the way see below_). So now we can do $\Delta x = B_{kr}(A_{kr}x)$ where $X_{kr} = (X_1 \odot_r X_2)$.
+
+
+At first glance, applying the Hadamard product directly to two LoRA-style updates — like computing $$ (B_1 A_1) \odot (B_2 A_2) $$ — seems like a nightmare: you’d have to materialize full $$ m \times n $$ matrices, which is as costly as full fine-tuning. That’s clearly not scalable.
+
+But **Theorem 2** gives us a lifeline.
+
+It tells us that instead of computing the big matrices first and *then* applying the Hadamard product, we can rewrite the whole thing using a row-wise Khatri–Rao product.
+
+This looks and feels *just like* the standard LoRA decomposition — a skinny-bottleneck sandwich — but with slightly different ingredients. Now we never have to form the full $$ m \times n $$ matrices explicitly. Instead, we can compute the update as:
+
+$$
+\Delta x = B_{\text{kr}} (A_{\text{kr}} x), \quad \text{where } X_{\text{kr}} = X_1 \odot_r X_2 \in \mathbb{R}^{m \times r_1r_2}
+$$
+
+So we preserve the low-rank efficiency, avoid full matrix computation, and still allow more expressive structure than standard LoRA and HiRA.
+
+> _Note: the representational space isn't exactly the same as LoRA — see the next section — but the re-parameterization looks very similar to LoRA._
+
+### ABBA space is not the LoRA space
+
+A natural question to ask after seeing **Theorem 2** is:  
+why not just apply an SVD-style or LoRA-style decomposition directly on the full Hadamard product and solve for matrices $ A_{\text{kr}} $ and $ B_{\text{kr}} $?
+
+In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if it were just another low-rank matrix approximation. But here’s the catch:  
+you’d only recover the *combined* structure (i.e., the product $B_{\text{kr}} A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $.
+
