@@ -24,6 +24,9 @@ toc:
         - name: ABBA space is not the LoRA space
         - name: ABBA performs better than SVD
   - name: Experiments
+    subsections:
+        - name: Commonsense reasoning
+        - name: Arithmetic reasoning
   - name: Conclusion
   - name: References
 ---
@@ -59,8 +62,7 @@ We asked a natural question: *what if* we no longer kept $W_0$ frozen? *What if*
 \begin{equation}
 \Delta W = s(B_1 A_1) \odot (B_2 A_2),
 \end{equation}
-where $B_1 \in \mathbb{R}^{m \times r_1},\; A_1 \in \mathbb{R}^{r_1 \times n}$ and  
-$B_2 \in \mathbb{R}^{m \times r_2},\; A_2 \in \mathbb{R}^{r_2 \times n}$, with $r_1, r_2 \ll \min(m, n)$ and $s$ is a scaling factor for stability.
+where $B_1 \in \mathbb{R}^{m \times r_1},\; A_1 \in \mathbb{R}^{r_1 \times n}$ and $B_2 \in \mathbb{R}^{m \times r_2},\; A_2 \in \mathbb{R}^{r_2 \times n}$, with $r_1, r_2 \ll \min(m, n)$ and $s$ is a scaling factor for stability.
 
 **# of Parameters** $= (r_1 + r_2)(m+n)$ 
 
@@ -72,7 +74,7 @@ Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter bu
 
 ### Implementing ABBA efficiently
 
-<div style="background-color: #e7f1fb; border-left: 4px solid #1f77b4; border-radius: 8px; padding: 1rem 1.25rem; margin: 1.5rem 0;">
+<div class="theorem-box">
   <strong>Theorem 2.</strong><d-cite key="slyusar1997new"></d-cite>
   Let $B_1 A_1, B_2 A_2 \in \mathbb{R}^{m \times n}$. Then,
 $$
@@ -92,7 +94,7 @@ It tells us that instead of computing the big matrices first and *then* applying
 This looks and feels *just like* the standard LoRA decomposition — a skinny-bottleneck sandwich — but with slightly different ingredients. Now we never have to form the full $$ m \times n $$ matrices explicitly. Instead, we can compute the update as:
 
 $$
-\Delta x = B_{\text{kr}} (A_{\text{kr}} x), \quad \text{where } X_{\text{kr}} = X_1 \odot_r X_2 \in \mathbb{R}^{m \times r_1r_2}
+\Delta W x = B_{\text{kr}} (A_{\text{kr}} x), \quad \text{where } X_{\text{kr}} = X_1 \odot_r X_2 \in \mathbb{R}^{m \times r_1r_2}
 $$
 
 So we preserve the low-rank efficiency, avoid full matrix computation, and still allow more expressive structure than standard LoRA and HiRA.
@@ -103,27 +105,48 @@ So we preserve the low-rank efficiency, avoid full matrix computation, and still
 
 A natural question to ask after seeing **Theorem 2** is: why not just apply an SVD-style or LoRA-style decomposition directly on the full Hadamard product and solve for matrices $ A_{\text{kr}} $ and $ B_{\text{kr}} $?
 
-In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if it were just another low-rank matrix approximation. But here’s the catch: you’d only recover the *combined* structure (i.e., the matrices $B_{\text{kr}}$ and $A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $. And this is easy to see since each row of the matrix $(B_1 \odot_r B_2)$ belongs to the Segre Variety $\mathcal{S}_{r_1r_2}$ - which is just a fancy way of saying that the space is consists of rank 1 tensors. Think about it $[3,4,6,8] = [1,2] \odot_r [3,4]$ but $[3,4,6,9]$ can't be represented of the form $u \otimes_r v$.
+In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if it were just another low-rank matrix approximation. But here’s the catch: you’d only recover the *combined* structure (i.e., the matrices $B_{\text{kr}}$ and $A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $. And this is easy to see since each row of the matrix $(B_1 \odot_r B_2)$ belongs to the Segre Variety $\mathcal{S}_{r_1r_2}$ - which is just a fancy way of saying that the space is consists of rank 1 tensors. Think about it $[3,4,6,8] = [1,2] \odot_r [3,4]$ but $[3,4,6,9]$ can't be represented of the form $u \odot_r v$.
 
 
 ### ABBA performs better than SVD
-
-
-## Experiments
-
-## Conclusion
-
-
-## Supplementary 
-
-<div class="row mt-3">
+ Here we look at the reconstruction error $\vert\vert M - M_X \vert\vert_F^2$ where $M$ is the target matrix and $M_X$ is the matrix of type $X$ where $X = \{ABBA, SVD \}$.
+ <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/abba/abba_new.png" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/abba/loss_landscape_2.png" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html loading="eager" path="assets/img/abba/recon_new.png" title="Reconstruction errors" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-   <strong>Left</strong>: Illustration of ABBA’s parameterization, where the update is expressed as the Hadamard product of two learnable low-rank matrices. <strong>Right</strong>: A toy experiment demonstrating ABBA’s optimization behavior. We first train a 2-layer MLP to classify the first 8 MNIST digits, then fine-tune it to recognize the last 2. ABBA converges faster and achieves better final performance.
+    <strong>Empirical Reconstruction Errors</strong>. We compare ABBA and LoRA decompositions across various matrix types by measuring reconstruction error $\mathcal{E}(r)$ under equal parameter budgets. For each LoRA rank $ r $, we set ABBA ranks to $r_1 = r_2 = r/2$ for a fair comparison. ABBA consistently achieves significantly lower reconstruction error than LoRA, across all matrix types.
 </div>
+
+## Experiments
+
+So how does ABBA do experimentally? -- it outperforms baselines across Commonsense reasoning and arithmetic reasoning.
+
+ ### Commonsense reasoning
+ <div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html loading="eager" path="assets/img/abba/abba_cr_results.png" title="ABBA CR results" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Comparison of multiple FT methods on Llama-3.2 1B and 3B across eight commonsense reasoning datasets. Best results among PEFT methods are in <strong>bold</strong>.
+</div>
+
+ ### Arithmetic reasoning
+  <div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.html loading="eager" path="assets/img/abba/abba_ar_results.png" title="ABBA AR results" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Comparison of multiple FT methods on Mistral-7B and Gemma-2 9B across arithmetic reasoning benchmarks. Best results among PEFT methods are in <strong>bold</strong>.
+</div>
+
+
+## Conclusion
+
+ABBA is a simple yet powerful tweak to the PEFT toolkit. By using a Hadamard product of two low-rank matrices, it keeps things lightweight like LoRA but packs in much more expressivity. Across tasks and models, this extra flexibility leads to solid performance gains — all while staying efficient.
+
+We haven’t tested ABBA on vision models or large multimodal setups yet, though it should work there too. Serving many ABBA adapters at once might be a bit heavier due to the Hadamard structure. Also, we don’t explore merging multiple adapters — something that’s known to be tricky in LoRA as well.
+
