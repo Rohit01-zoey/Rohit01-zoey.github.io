@@ -22,6 +22,8 @@ toc:
     subsections:
         - name: Implementing ABBA efficiently
         - name: ABBA space is not the LoRA space
+        - name: ABBA performs better than SVD
+  - name: Experiments
   - name: Conclusion
   - name: References
 ---
@@ -62,7 +64,7 @@ $B_2 \in \mathbb{R}^{m \times r_2},\; A_2 \in \mathbb{R}^{r_2 \times n}$, with $
 
 **# of Parameters** $= (r_1 + r_2)(m+n)$ 
 
-**Rank we can express** $= r_1 r_2$ (using Thm (1) again 👀)
+**Rank we can express** $\le r_1 r_2$ (using Thm (1) again 👀)
 
 Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter budget as our baselines but also can represent matrices till rank $\frac{r^2}{4}$ (i.e maximizing the rank max)
 
@@ -70,7 +72,7 @@ Thus, setting $r_1=r_2 = \frac{r}{2}$ not only do we reach the same parameter bu
 
 ### Implementing ABBA efficiently
 
-<div class="theorem-box">
+<div style="background-color: #e7f1fb; border-left: 4px solid #1f77b4; border-radius: 8px; padding: 1rem 1.25rem; margin: 1.5rem 0;">
   <strong>Theorem 2.</strong><d-cite key="slyusar1997new"></d-cite>
   Let $B_1 A_1, B_2 A_2 \in \mathbb{R}^{m \times n}$. Then,
 $$
@@ -104,7 +106,12 @@ A natural question to ask after seeing **Theorem 2** is: why not just apply an S
 In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if it were just another low-rank matrix approximation. But here’s the catch: you’d only recover the *combined* structure (i.e., the matrices $B_{\text{kr}}$ and $A_{\text{kr}}$), and there’s no guarantee that this can be cleanly split back into the original four matrices $ A_1, B_1, A_2, B_2 $. And this is easy to see since each row of the matrix $(B_1 \odot_r B_2)$ belongs to the Segre Variety $\mathcal{S}_{r_1r_2}$ - which is just a fancy way of saying that the space is consists of rank 1 tensors. Think about it $[3,4,6,8] = [1,2] \odot_r [3,4]$ but $[3,4,6,9]$ can't be represented of the form $u \otimes_r v$.
 
 
+### ABBA performs better than SVD
 
+
+## Experiments
+
+## Conclusion
 
 
 ## Supplementary 
