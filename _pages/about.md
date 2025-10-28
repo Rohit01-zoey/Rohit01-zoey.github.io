@@ -18,15 +18,15 @@ latest_posts: false  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-I am a **second-year M.S. in Computer Science** student at **Duke University**. 
+I am a **second-year M.S. in Computer Science** student at **Duke University**.
 
-My research interests lie closely in robustness and reasoning in LLMs. I am specifically interested in learning more about how models reason and improve it at the same time. At the same time I want to ensure that they are efficient and scalable in real life.
+My research interests lie in **robustness and reasoning in LLMs**. I am particularly interested in understanding how models reason, improving that reasoning process, and ensuring that these models remain **efficient and scalable in real-world settings**.
 
-I am currently advised by **[Prof. Bhuwan Dhingra](https://users.cs.duke.edu/~bdhingra/)** at **Duke**, where I am currently exploring mathematical reasoning of multi-modal LLMs
+I am currently advised by **[Prof. Bhuwan Dhingra](https://users.cs.duke.edu/~bdhingra/)** at **Duke**, where I am exploring the **mathematical reasoning capabilities of multimodal LLMs**.
 
-Previously, I interned at **[CERT Labs](https://github.com/CERT-Lab)**, where I worked under **[Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/)** at **Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)**, where my focus was on **improving efficiency of LLMs**.  
+Previously, I interned at **[CERT Labs](https://github.com/CERT-Lab)**, working under **[Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/)** at **Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)**, where my focus was on **improving the efficiency and scalability of large language models**.
 
-Additionally, I was also advised by **[Prof. Monica Agrawal](https://www.monicaagrawal.com/)** at **Duke University**, where I worked on **studying and improving medical chatbots** to enhance their accuracy and real-world usability.  
+Additionally, I was advised by **[Prof. Monica Agrawal](https://www.monicaagrawal.com/)** at **Duke University**, where I worked on **studying and improving medical chatbots** to enhance their accuracy and real-world usability.
 
-Feel free to explore my work and reach out! 🚀  
+Feel free to explore my work and reach out! 🚀
 
