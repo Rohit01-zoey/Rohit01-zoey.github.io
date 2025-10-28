@@ -14,16 +14,19 @@ profile:
   #   <p>Your City, State 12345</p>
 
 news: true  # includes a list of news items
-latest_posts: true  # includes a list of the newest posts
+latest_posts: false  # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-I am a **second-year M.S. student in Computer Science** at **Duke University**.  
+I am a **second-year M.S. in Computer Science** student at **Duke University**. 
 
-I am currently part of **[CERT Labs](https://github.com/CERT-Lab)**, working under **[Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/)** at **Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)**, where my focus is on **reducing the memory utilization of large language models (LLMs)**.  
+My research interests lie closely in robustness and reasoning in LLMs. I am specifically interested in learning more about how models reason and improve it at the same time. At the same time I want to ensure that they are efficient and scalable in real life.
 
-Additionally, I am advised by **[Prof. Monica Agrawal](https://www.monicaagrawal.com/)** at **Duke University**, where I work on **studying and improving medical chatbots** to enhance their accuracy and real-world usability.  
+I am currently advised by **[Prof. Bhuwan Dhingra](https://users.cs.duke.edu/~bdhingra/)** at **Duke**, where I am currently exploring mathematical reasoning of multi-modal LLMs
 
-Still figuring out what truly excites me, but I’ll probably update this when I do! 🫠  
+Previously, I interned at **[CERT Labs](https://github.com/CERT-Lab)**, where I worked under **[Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/)** at **Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)**, where my focus was on **improving efficiency of LLMs**.  
+
+Additionally, I was also advised by **[Prof. Monica Agrawal](https://www.monicaagrawal.com/)** at **Duke University**, where I worked on **studying and improving medical chatbots** to enhance their accuracy and real-world usability.  
 
 Feel free to explore my work and reach out! 🚀  
+

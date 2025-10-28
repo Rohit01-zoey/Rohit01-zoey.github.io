@@ -123,7 +123,7 @@ In theory, yes — you could compute $ A_{\text{kr}} $ and $B_{\text{kr}}$ as if
 
 So how does ABBA do experimentally? -- it outperforms baselines across Commonsense reasoning and arithmetic reasoning.
 
- ### Commonsense reasoning
+### Commonsense reasoning
  <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html loading="eager" path="assets/img/abba/abba_cr_results.png" title="ABBA CR results" class="img-fluid rounded z-depth-1" %}
@@ -133,7 +133,7 @@ So how does ABBA do experimentally? -- it outperforms baselines across Commonsen
     Comparison of multiple FT methods on Llama-3.2 1B and 3B across eight commonsense reasoning datasets. Best results among PEFT methods are in <strong>bold</strong>.
 </div>
 
- ### Arithmetic reasoning
+### Arithmetic reasoning
   <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.html loading="eager" path="assets/img/abba/abba_ar_results.png" title="ABBA AR results" class="img-fluid rounded z-depth-1" %}
