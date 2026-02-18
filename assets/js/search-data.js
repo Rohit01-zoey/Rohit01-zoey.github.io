@@ -405,16 +405,17 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
+            },},{id: "news-excited-to-share-our-latest-work-fed-sb-a-silver-bullet-for-extreme-communication-efficiency-and-performance-in-private-federated-lora-fine-tuning-now-available-on-arxiv",
+          title: 'Excited to share our latest work, “Fed-SB: A Silver Bullet for Extreme Communication...',
           description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
+          section: "News",},{id: "news-just-dropped-abba-adapters-efficient-and-expressive-fine-tuning-of-foundation-models-is-now-on-arxiv",
+          title: '🚀 Just dropped: “ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models” is now...',
           description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+          section: "News",},{id: "news-excited-to-share-our-latest-work-what-s-up-doc-analyzing-how-users-seek-health-information-in-large-scale-conversational-ai-datasets-now-available-on-arxiv",
+          title: 'Excited to share our latest work, ““What’s Up, Doc?”: Analyzing How Users Seek...',
+          description: "",
+          section: "News",},{id: "news-excited-to-share-that-our-work-abba-adapters-efficient-and-expressive-fine-tuning-of-foundation-models-has-been-accepted-at-iclr-2026",
+          title: 'Excited to share that our work, “ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation...',
           description: "",
           section: "News",},{id: "projects-project-1",
           title: 'project 1',
