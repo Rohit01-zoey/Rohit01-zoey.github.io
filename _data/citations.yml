@@ -3,11 +3,11 @@ metadata:
 papers:
   aOiRPtoAAAAJ:-d1gkVwhDpl0C:
     citations: 2
-    title: ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models
+    title: "ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models"
     year: 2026
   aOiRPtoAAAAJ:-u5HHmVD_uO8C:
     citations: 8
-    title: Fed-SB: A Silver Bullet for Extreme Communication Efficiency and Performance in (Private) Federated LoRA Fine-Tuning
+    title: "Fed-SB: A Silver Bullet for Extreme Communication Efficiency and Performance in (Private) Federated LoRA Fine-Tuning"
     year: 2026
   qc6CJjYAAAAJ:-1WLWRmjvKAC:
     citations: 4
