@@ -1,13 +1,17 @@
 metadata:
-  last_updated: '2026-03-02'
+  last_updated: '2026-03-23'
 papers:
   aOiRPtoAAAAJ:2osOgNQ5qMEC:
     citations: 5
     title: '" What''s Up, Doc?": Analyzing How Users Seek Health Information in Large-Scale Conversational AI Datasets'
     year: '2025'
-  aOiRPtoAAAAJ:d1gkVwhDpl0C:
+  aOiRPtoAAAAJ:IjCSPb-OGe4C:
+    citations: 0
+    title: 'ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models'
+    year: '2025'
+  aOiRPtoAAAAJ:UeHWp8X0CEIC:
     citations: 2
-    title: 'ABBA: Highly Expressive Hadamard Product Adaptation for Large Language Models'
+    title: 'Abba: Highly expressive hadamard product adaptation for large language models'
     year: '2025'
   aOiRPtoAAAAJ:qjMakFHDy7sC:
     citations: 0
