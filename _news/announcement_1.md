@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Excited to share our latest work, "Fed-SB: A Silver Bullet for Extreme Communication Efficiency and Performance in (Private) Federated LoRA Fine-Tuning"! Now available on [arXiv](https://arxiv.org/pdf/2502.15436)🚀
+Our work “Fed-SB: A Silver Bullet for Extreme Communication Efficiency and Performance in (Private) Federated LoRA Fine-Tuning” is now available on [arXiv](https://arxiv.org/pdf/2502.15436)🚀

@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://duke.edu'>Duke University</a> | A want-to-be LLM researcher
+subtitle: Incoming Research Assistant, <a href='https://mbzuai.ac.ae'>MBZUAI</a> (May 2026 –) | LLMs, AGI
 
 profile:
   align: right
@@ -18,21 +18,25 @@ social: true # includes social icons at the bottom of the page
 announcements:
   enabled: true # includes a list of news items
   scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  limit: 3 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
   enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
-I am a **second-year M.S. in Computer Science** student at **Duke University**.
+I am an incoming Research Assistant at MBZUAI (May 2026 –), where I will be advised by [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/).
 
-My research interests lie in **robustness and reasoning in LLMs**. I am particularly interested in understanding how models reason, improving that reasoning process, and ensuring that these models remain **efficient and scalable in real-world settings**.
+My research focuses on reasoning, robustness, and efficiency in large language models (LLMs). Broadly, I study how models reason and how to design methods that improve reasoning while remaining scalable in real-world settings.
 
-I am currently advised by **[Prof. Bhuwan Dhingra](https://users.cs.duke.edu/~bdhingra/)** at **Duke**, where I am exploring the **mathematical reasoning capabilities of multimodal LLMs**.
+My work spans several areas, including:
+- *Parameter-efficient fine-tuning*, improving expressivity and adaptability of large models  
+- *Federated learning for LLMs*, with an emphasis on communication-efficient training  
+- *(Multimodal) reasoning*, studying how models process and reason over visual and textual inputs  
+- LLM applications in healthcare, focusing on real-world user interaction with medical chatbots  
 
-Previously, I interned at **[CERT Labs](https://github.com/CERT-Lab)**, working under **[Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/)** at **Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)**, where my focus was on **improving the efficiency and scalability of large language models**.
+Prior to this, I completed my M.S. in Computer Science at Duke University, where I worked with [Prof. Bhuwan Dhingra](https://users.cs.duke.edu/~bdhingra/) on the mathematical reasoning capabilities of multimodal LLMs.
 
-Additionally, I was advised by **[Prof. Monica Agrawal](https://www.monicaagrawal.com/)** at **Duke University**, where I worked on **studying and improving medical chatbots** to enhance their accuracy and real-world usability.
+During this time, I also interned with [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/) at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) (Summer 2025), working on efficient and scalable training methods for large models, and collaborated with [Prof. Monica Agrawal](https://www.monicaagrawal.com/) on medical chatbots and their real-world usability.
 
-Feel free to explore my work and reach out! 🚀
+Before this, I completed my B.Tech in Electrical Engineering and M.Tech in Artificial Intelligence and Data Science at IIT Bombay.

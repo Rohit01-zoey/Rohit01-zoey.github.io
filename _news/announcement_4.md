@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Excited to share that our work, "ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models"! has been accepted at ICLR 2026🚀
+Our paper “ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models” has been accepted at **ICLR 2026**.
