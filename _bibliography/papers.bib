@@ -34,8 +34,11 @@
   preview       = {abba_img.png},
   google_scholar_id = {d1gkVwhDpl0C},
   selected      = {true},
-  abstract      = {},
+  abstract      = {Large Language Models have demonstrated strong performance across a wide range of tasks, but adapting them efficiently to new domains remains a key challenge. Parameter-Efficient Fine-Tuning (PEFT) methods address this by introducing lightweight, trainable modules while keeping most pre-trained weights fixed. The prevailing approach, LoRA, models updates using a low-rank decomposition, but its expressivity is inherently constrained by the rank. Recent methods like HiRA aim to increase expressivity by incorporating a Hadamard product with the frozen weights, but still rely on the structure of the pre-trained model. We introduce ABBA, a new PEFT architecture that reparameterizes the update as a Hadamard product of two independently learnable low-rank matrices. In contrast to prior work, ABBA fully decouples the update from the pre-trained weights, enabling both components to be optimized freely. This leads to significantly higher expressivity under the same parameter budget, a property we validate through matrix reconstruction experiments. Empirically, ABBA achieves state-of-the-art results on arithmetic and commonsense reasoning benchmarks, consistently outperforming existing PEFT methods by a significant margin across multiple models. Our code is publicly available at: https://github.com/CERT-Lab/abba.},
   pdf           = {abba_adapters.pdf},
+  abbr          = {ICLR},
+  bibtex_show   = {true},
+  code          = {https://github.com/CERT-Lab/abba},
   additional_info  = {*, Spotlight at ES-FOMO@ICML 2025*}
 }
 
@@ -51,6 +54,11 @@
   preview          = {fedsb_img.png},
   google_scholar_id = {u5HHmVD_uO8C},
   selected         = {true},
+  abstract         = {Low-Rank Adaptation (LoRA) has become ubiquitous for efficiently fine-tuning foundation models. However, federated fine-tuning using LoRA is challenging due to suboptimal updates arising from traditional federated averaging of individual adapters. Existing solutions either incur prohibitively high communication cost that scales linearly with the number of clients or suffer from performance degradation due to limited expressivity. We introduce Federated Silver Bullet (Fed-SB), a novel approach for federated fine-tuning of LLMs using LoRA-SB, a recently proposed low-rank adaptation method. LoRA-SB optimally aligns the optimization trajectory with the ideal low-rank full fine-tuning projection by learning a small square matrix (R) between adapters B and A, keeping other components fixed. Direct averaging of R guarantees exact updates, substantially reducing communication cost, which remains independent of the number of clients, and enables scalability. Fed-SB achieves state-of-the-art performance across commonsense reasoning, arithmetic reasoning, and language inference tasks while reducing communication costs by up to 230x. In private settings, Fed-SB further improves performance by (1) reducing trainable parameters, thereby lowering the noise required for differential privacy and (2) avoiding noise amplification introduced by other methods. Overall, Fed-SB offers a state-of-the-art, efficient, and scalable solution for both private and non-private federated fine-tuning. Our code is publicly available at: https://github.com/CERT-Lab/fed-sb},
+  pdf              = {fedsb_tmlr.pdf},
+  abbr             = {TMLR},
+  bibtex_show      = {true},
+  code             = {https://github.com/CERT-Lab/fed-sb},
   additional_info  = {*, J2C Certification (Top 10% of accepted papers)*}
 }
 
