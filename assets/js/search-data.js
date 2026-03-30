@@ -32,7 +32,7 @@ ninja.data = [{
           },
         },{id: "nav-cv",
           title: "CV",
-          description: "This is a description of the page. You can modify it in &#39;_pages/cv.md&#39;. You can also change or remove the top pdf download button.",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
@@ -57,7 +57,17 @@ ninja.data = [{
           section: "News",},{id: "news-our-paper-fed-sb-a-silver-bullet-for-extreme-communication-efficiency-and-performance-in-private-federated-lora-fine-tuning-has-been-accepted-at-tmlr-2026",
           title: 'Our paper “Fed-SB: A Silver Bullet for Extreme Communication Efficiency and Performance in...',
           description: "",
-          section: "News",},{id: "teachings-data-science-fundamentals",
+          section: "News",},{id: "projects-abba-adaptors",
+          title: 'ABBA-Adaptors',
+          description: "Efficient and Expressive Fine-Tuning of Foundation Models",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_project/";
+            },},{id: "projects-fed-sb",
+          title: 'Fed-SB',
+          description: "Efficient and Expressive Fine-Tuning of Foundation Models",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_project/";
+            },},{id: "teachings-data-science-fundamentals",
           title: 'Data Science Fundamentals',
           description: "This course covers the foundational aspects of data science, including data collection, cleaning, analysis, and visualization. Students will learn practical skills for working with real-world datasets.",
           section: "Teachings",handler: () => {
