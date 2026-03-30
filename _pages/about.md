@@ -37,6 +37,6 @@ My work spans several areas, including:
 
 Prior to this, I completed my M.S. in Computer Science at Duke University, where I worked with [Prof. Bhuwan Dhingra](https://users.cs.duke.edu/~bdhingra/) on the mathematical reasoning capabilities of multimodal LLMs.
 
-During this time, I also interned with [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/) at Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) (Summer 2025), working on efficient and scalable training methods for large models, and collaborated with [Prof. Monica Agrawal](https://www.monicaagrawal.com/) on medical chatbots and their real-world usability.
+During this time, I also interned with [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/) at MBZUAI (Summer 2025), working on efficient and scalable training methods for large models, and collaborated with [Prof. Monica Agrawal](https://www.monicaagrawal.com/) on medical chatbots and their real-world usability.
 
 Before this, I completed my B.Tech in Electrical Engineering and M.Tech in Artificial Intelligence and Data Science at IIT Bombay.
