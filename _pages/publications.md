@@ -11,7 +11,7 @@ scholar_profile_metrics: true
 <!-- _pages/publications.md -->
 
 {% if page.scholar_profile_metrics %}
-  {% include scholar_profile_metrics.liquid %}
+{% include scholar_profile_metrics.liquid %}
 {% endif %}
 
 <!-- Bibsearch Feature -->
