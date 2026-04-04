@@ -1,0 +1,69 @@
+{% comment %}
+  Shows total citations, h-index, and i10 from site.data.citations.metadata
+  (filled by bin/update_scholar_citations.py). Optional manual edits in _data/citations.yml.
+{% endcomment %}
+{% if site.data.citations and site.data.citations.metadata %}
+  {% assign sm = site.data.citations.metadata %}
+  {% if sm.total_citations != blank or sm.h_index != blank or sm.i10_index != blank %}
+    <div
+      class="scholar-profile-metrics card mb-4"
+      style="background-color: var(--global-card-bg-color); border-color: var(--global-divider-color)"
+    >
+      <div class="card-body py-3">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+          <h2 class="h5 mb-0" style="color: var(--global-text-color)">Google Scholar</h2>
+          {% if site.data.socials.scholar_userid %}
+            <a
+              href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-primary"
+            >
+              Profile
+            </a>
+          {% endif %}
+        </div>
+        <div class="row text-center g-2">
+          {% if sm.total_citations != blank %}
+            <div class="col-6 col-md-4">
+              <div
+                class="rounded p-3 h-100"
+                style="border: 1px solid var(--global-divider-color); background-color: var(--global-bg-color)"
+              >
+                <div class="small text-uppercase" style="color: var(--global-text-color); opacity: 0.75">Citations</div>
+                <div class="h4 mb-0 font-weight-bold" style="color: var(--global-text-color)">{{ sm.total_citations }}</div>
+              </div>
+            </div>
+          {% endif %}
+          {% if sm.h_index != blank %}
+            <div class="col-6 col-md-4">
+              <div
+                class="rounded p-3 h-100"
+                style="border: 1px solid var(--global-divider-color); background-color: var(--global-bg-color)"
+              >
+                <div class="small text-uppercase" style="color: var(--global-text-color); opacity: 0.75">h-index</div>
+                <div class="h4 mb-0 font-weight-bold" style="color: var(--global-text-color)">{{ sm.h_index }}</div>
+              </div>
+            </div>
+          {% endif %}
+          {% if sm.i10_index != blank %}
+            <div class="col-6 col-md-4">
+              <div
+                class="rounded p-3 h-100"
+                style="border: 1px solid var(--global-divider-color); background-color: var(--global-bg-color)"
+              >
+                <div class="small text-uppercase" style="color: var(--global-text-color); opacity: 0.75">i10-index</div>
+                <div class="h4 mb-0 font-weight-bold" style="color: var(--global-text-color)">{{ sm.i10_index }}</div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        {% if sm.last_updated != blank %}
+          <p class="small mb-0 mt-3" style="color: var(--global-text-color); opacity: 0.65">
+            Last synced {{ sm.last_updated }} (Google Scholar). Refresh with <code>bin/update_scholar_citations.py</code>.
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

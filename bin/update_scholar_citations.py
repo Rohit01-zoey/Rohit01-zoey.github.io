@@ -4,6 +4,8 @@ import os
 import sys
 import yaml
 from datetime import datetime
+from typing import Any, Dict, Optional
+
 from scholarly import scholarly
 
 
@@ -36,31 +38,74 @@ SCHOLAR_USER_ID: str = load_scholar_user_id()
 OUTPUT_FILE: str = "_data/citations.yml"
 
 
+def _coerce_int(value: Any) -> Optional[int]:
+    if value is None:
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def author_profile_metrics(author_data: dict) -> Dict[str, int]:
+    """Extract Google Scholar profile totals for _data/citations.yml metadata."""
+    metrics: Dict[str, int] = {}
+
+    citedby = _coerce_int(author_data.get("citedby"))
+    if citedby is not None:
+        metrics["total_citations"] = citedby
+
+    h = author_data.get("hindex")
+    if isinstance(h, dict):
+        hv = _coerce_int(h.get("h"))
+        if hv is None:
+            hv = _coerce_int(h.get("all"))
+        if hv is not None:
+            metrics["h_index"] = hv
+    else:
+        hv = _coerce_int(h)
+        if hv is not None:
+            metrics["h_index"] = hv
+
+    i10 = author_data.get("i10index")
+    if isinstance(i10, dict):
+        iv = _coerce_int(i10.get("i10"))
+        if iv is None:
+            iv = _coerce_int(i10.get("all"))
+        if iv is not None:
+            metrics["i10_index"] = iv
+    else:
+        iv = _coerce_int(i10)
+        if iv is not None:
+            metrics["i10_index"] = iv
+
+    return metrics
+
+
 def get_scholar_citations() -> None:
     """Fetch and update Google Scholar citation data."""
     print(f"Fetching citations for Google Scholar ID: {SCHOLAR_USER_ID}")
     today = datetime.now().strftime("%Y-%m-%d")
+    existing_data = None
 
-    # Check if the output file was already updated today
     if os.path.exists(OUTPUT_FILE):
         try:
             with open(OUTPUT_FILE, "r") as f:
                 existing_data = yaml.safe_load(f)
             if (
                 existing_data
-                and "metadata" in existing_data
-                and "last_updated" in existing_data["metadata"]
+                and existing_data.get("metadata")
+                and existing_data["metadata"].get("last_updated") == today
             ):
                 print(f"Last updated on: {existing_data['metadata']['last_updated']}")
-                if existing_data["metadata"]["last_updated"] == today:
-                    print("Citations data is already up-to-date. Skipping fetch.")
-                    return
+                print("Citations data is already up-to-date. Skipping fetch.")
+                return
         except Exception as e:
             print(
                 f"Warning: Could not read existing citation data from {OUTPUT_FILE}: {e}. The file may be missing or corrupted."
             )
 
-    citation_data = {"metadata": {"last_updated": today}, "papers": {}}
+    citation_data: dict = {"metadata": {"last_updated": today}, "papers": {}}
 
     scholarly.set_timeout(15)
     scholarly.set_retries(3)
@@ -78,6 +123,11 @@ def get_scholar_citations() -> None:
             f"Could not fetch author data for user ID '{SCHOLAR_USER_ID}'. Please verify the Scholar user ID and try again."
         )
         sys.exit(1)
+
+    profile = author_profile_metrics(author_data)
+    citation_data["metadata"].update(profile)
+    for k, v in profile.items():
+        print(f"Profile metric {k}: {v}")
 
     if "publications" not in author_data:
         print(f"No publications found in author data for user ID '{SCHOLAR_USER_ID}'.")
@@ -108,10 +158,16 @@ def get_scholar_citations() -> None:
                 f"Error processing publication '{pub.get('bib', {}).get('title', 'Unknown')}': {e}. This publication will be skipped."
             )
 
-    # Compare new data with existing data
-    if existing_data and existing_data.get("papers") == citation_data["papers"]:
-        print("No changes in citation data. Skipping file update.")
-        return
+    if existing_data:
+        same_papers = existing_data.get("papers") == citation_data["papers"]
+        om = existing_data.get("metadata") or {}
+        nm = citation_data["metadata"]
+        same_profile = all(
+            om.get(k) == nm.get(k) for k in ("total_citations", "h_index", "i10_index")
+        )
+        if same_papers and same_profile:
+            print("No changes in citation data. Skipping file update.")
+            return
 
     try:
         with open(OUTPUT_FILE, "w") as f:
