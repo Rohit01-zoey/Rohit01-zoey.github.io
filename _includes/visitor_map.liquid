@@ -8,10 +8,7 @@
     {% if vm.script_id != blank %}
       {% assign map_script_id = vm.script_id %}
     {% endif %}
-<div
-  class="visitor-map text-center py-2 mt-1"
-  style="border-top: 1px solid var(--global-divider-color)"
->
+<div class="visitor-map visitor-map--social text-center">
   <script
     {% if site.enable_cookie_consent %}
       type="text/plain" data-category="analytics"
@@ -29,10 +26,7 @@
       {% assign clustr_src = 'https://cdn.clustrmaps.com/map_v2.js' %}
       {% assign clustr_qs = vm.clustrmaps_id | prepend: '?d=' | append: '&cl=ffffff&w=a' %}
     {% endif %}
-<div
-  class="visitor-map text-center py-2 mt-1"
-  style="border-top: 1px solid var(--global-divider-color)"
->
+<div class="visitor-map visitor-map--social text-center">
   <script
     {% if site.enable_cookie_consent %}
       type="text/plain" data-category="analytics"

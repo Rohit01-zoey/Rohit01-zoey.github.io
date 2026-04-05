@@ -210,6 +210,22 @@ ul.task-list input[type="checkbox"] {
     }
   }
 
+  // MapMyVisitors / ClustrMaps embed under social icons
+  .visitor-map--social {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--global-divider-color);
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+
+    iframe {
+      max-width: 100% !important;
+      width: 280px !important;
+      height: 150px !important;
+    }
+  }
+
   .contact-note {
     font-size: 0.8rem;
   }
