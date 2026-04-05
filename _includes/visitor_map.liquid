@@ -2,8 +2,10 @@
 {% if vm.enabled %}
   {% if vm.script_src != blank %}
     {% assign map_script_id = 'visitor-map-widget' %}
+    {% assign mapmyvisitors_embed = false %}
     {% if vm.script_src contains 'mapmyvisitors.com' %}
       {% assign map_script_id = 'mapmyvisitors' %}
+      {% assign mapmyvisitors_embed = true %}
     {% endif %}
     {% if vm.script_id != blank %}
       {% assign map_script_id = vm.script_id %}
@@ -14,7 +16,12 @@
       {% if site.enable_cookie_consent %}
         type="text/plain" data-category="analytics"
       {% endif %}
+      {% comment %} MapMyVisitors: no async — its jQuery/noConflict must run before the theme's jQuery at the end of body. {% endcomment %}
+      {% unless site.enable_cookie_consent %}
+        {% unless mapmyvisitors_embed %}
       async
+        {% endunless %}
+      {% endunless %}
       id="{{ map_script_id }}"
       src="{{ vm.script_src }}"
     ></script>

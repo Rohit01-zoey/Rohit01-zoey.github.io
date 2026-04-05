@@ -248,11 +248,6 @@ ul.task-list input[type="checkbox"] {
     line-height: 1.15 !important;
   }
 
-  // Overlay with "Loading data..." — hide if it never clears (blocked JSONP / slow API)
-  #mapmyvisitors-widget .mapmyvisitors-loading {
-    display: none !important;
-  }
-
   // ClustrMaps (if used here)
   .visitor-map--social iframe {
     max-width: 100% !important;
