@@ -60,7 +60,8 @@ footer_fixed: true
 # Option B — ClustrMaps (https://clustrmaps.com/add): leave script_src empty and set clustrmaps_id.
 visitor_map:
   enabled: true
-  script_src: "https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=YpllgvR27GA5In_0S5BMGKHVgLOLmJLEyAOyrYAun-Q&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff"
+  # Use numeric w (px), not w=a — otherwise parent width can be misread as 300px. ~10.5rem ≈ width of 3 social icons.
+  script_src: "https://mapmyvisitors.com/map.js?cl=ffffff&w=168&t=tt&d=YpllgvR27GA5In_0S5BMGKHVgLOLmJLEyAOyrYAun-Q&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff"
   script_id: mapmyvisitors # must match the embed `id` when the provider requires it
   clustrmaps_id: # only if using ClustrMaps instead of script_src
   widget: map # ClustrMaps only: map or globe

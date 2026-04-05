@@ -9,14 +9,16 @@
       {% assign map_script_id = vm.script_id %}
     {% endif %}
 <div class="visitor-map visitor-map--social text-center">
-  <script
-    {% if site.enable_cookie_consent %}
-      type="text/plain" data-category="analytics"
-    {% endif %}
-    async
-    id="{{ map_script_id }}"
-    src="{{ vm.script_src }}"
-  ></script>
+  <div class="visitor-map-scale">
+    <script
+      {% if site.enable_cookie_consent %}
+        type="text/plain" data-category="analytics"
+      {% endif %}
+      async
+      id="{{ map_script_id }}"
+      src="{{ vm.script_src }}"
+    ></script>
+  </div>
 </div>
   {% elsif vm.clustrmaps_id != blank %}
     {% if vm.widget == 'globe' %}
