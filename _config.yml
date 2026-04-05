@@ -54,6 +54,17 @@ external_services:
 
 navbar_fixed: true
 footer_fixed: true
+
+# Visitor map in the footer.
+# Option A — MapMyVisitors: paste the full `src="..."` URL from your embed (keep the line in quotes).
+# Option B — ClustrMaps (https://clustrmaps.com/add): leave script_src empty and set clustrmaps_id.
+visitor_map:
+  enabled: true
+  script_src: "https://mapmyvisitors.com/map.js?cl=ffffff&w=a&t=tt&d=YpllgvR27GA5In_0S5BMGKHVgLOLmJLEyAOyrYAun-Q&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff"
+  script_id: mapmyvisitors # must match the embed `id` when the provider requires it
+  clustrmaps_id: # only if using ClustrMaps instead of script_src
+  widget: map # ClustrMaps only: map or globe
+
 search_enabled: true
 socials_in_search: true
 posts_in_search: true

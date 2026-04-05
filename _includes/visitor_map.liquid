@@ -1,0 +1,57 @@
+{% assign vm = site.visitor_map %}
+{% if vm.enabled %}
+  {% if vm.script_src != blank %}
+    {% assign map_script_id = 'visitor-map-widget' %}
+    {% if vm.script_src contains 'mapmyvisitors.com' %}
+      {% assign map_script_id = 'mapmyvisitors' %}
+    {% endif %}
+    {% if vm.script_id != blank %}
+      {% assign map_script_id = vm.script_id %}
+    {% endif %}
+<div
+  class="visitor-map text-center py-2 mt-1"
+  style="border-top: 1px solid var(--global-divider-color)"
+>
+  <script
+    {% if site.enable_cookie_consent %}
+      type="text/plain" data-category="analytics"
+    {% endif %}
+    async
+    id="{{ map_script_id }}"
+    src="{{ vm.script_src }}"
+  ></script>
+</div>
+  {% elsif vm.clustrmaps_id != blank %}
+    {% if vm.widget == 'globe' %}
+      {% assign clustr_src = 'https://cdn.clustrmaps.com/globe.js' %}
+      {% assign clustr_qs = vm.clustrmaps_id | prepend: '?d=' %}
+    {% else %}
+      {% assign clustr_src = 'https://cdn.clustrmaps.com/map_v2.js' %}
+      {% assign clustr_qs = vm.clustrmaps_id | prepend: '?d=' | append: '&cl=ffffff&w=a' %}
+    {% endif %}
+<div
+  class="visitor-map text-center py-2 mt-1"
+  style="border-top: 1px solid var(--global-divider-color)"
+>
+  <script
+    {% if site.enable_cookie_consent %}
+      type="text/plain" data-category="analytics"
+    {% endif %}
+    async
+    id="clustrmaps-widget"
+    src="{{ clustr_src }}{{ clustr_qs }}"
+  ></script>
+  <noscript>
+    <a href="https://clustrmaps.com" rel="nofollow noopener noreferrer">
+      <img
+        src="https://www.clustrmaps.com/map_v2.png?d={{ vm.clustrmaps_id }}"
+        alt="Locations of visitors to this site"
+        loading="lazy"
+        width="180"
+        height="120"
+      >
+    </a>
+  </noscript>
+</div>
+  {% endif %}
+{% endif %}
