@@ -3,7 +3,7 @@ layout: post
 title: why the posts?
 date: 2026-04-08 11:59:00-0400
 description: Why I want to write more blog posts...
-tags: formatting toc
+tags: uncategorized
 categories: 
 giscus_comments: false
 related_posts: false
