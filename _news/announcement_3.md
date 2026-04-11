@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-06-26
+date: 2026-03-04
 inline: true
 related_posts: false
 ---
 
-Our work “What’s Up, Doc?: Analyzing How Users Seek Health Information in Large-Scale Conversational AI Datasets” is now available on [arXiv](https://arxiv.org/abs/2506.21532).
+Our paper “Fed-SB: A Silver Bullet for Extreme Communication Efficiency and Performance in (Private) Federated LoRA Fine-Tuning” has been accepted at **TMLR 2026**.

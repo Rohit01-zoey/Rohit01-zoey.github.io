@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2026-01-20
+date: 2026-04-08
 inline: true
 related_posts: false
 ---
 
-Our paper “ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models” has been accepted at **ICLR 2026**.
+Successfully defended my M.S. degree (course-only track) at Duke University
