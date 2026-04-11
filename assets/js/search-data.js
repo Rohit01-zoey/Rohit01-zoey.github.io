@@ -53,13 +53,7 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-our-work-fed-sb-a-silver-bullet-for-extreme-communication-efficiency-and-performance-in-private-federated-lora-fine-tuning-is-now-available-on-arxiv",
-          title: 'Our work “Fed-SB: A Silver Bullet for Extreme Communication Efficiency and Performance in...',
-          description: "",
-          section: "News",},{id: "news-our-paper-abba-adapters-efficient-and-expressive-fine-tuning-of-foundation-models-is-now-available-on-arxiv",
-          title: 'Our paper “ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models” is now available...',
-          description: "",
-          section: "News",},{id: "news-our-work-what-s-up-doc-analyzing-how-users-seek-health-information-in-large-scale-conversational-ai-datasets-is-now-available-on-arxiv",
+            },},{id: "news-our-work-what-s-up-doc-analyzing-how-users-seek-health-information-in-large-scale-conversational-ai-datasets-is-now-available-on-arxiv",
           title: 'Our work “What’s Up, Doc?: Analyzing How Users Seek Health Information in Large-Scale...',
           description: "",
           section: "News",},{id: "news-our-paper-abba-adapters-efficient-and-expressive-fine-tuning-of-foundation-models-has-been-accepted-at-iclr-2026",
