@@ -1,16 +1,20 @@
 metadata:
   h_index: 2
   i10_index: 1
-  last_updated: '2026-04-04'
-  total_citations: 16
+  last_updated: '2026-04-22'
+  total_citations: 20
 papers:
   aOiRPtoAAAAJ:2osOgNQ5qMEC:
-    citations: 6
+    citations: 7
     title: '" What''s Up, Doc?": Analyzing How Users Seek Health Information in Large-Scale Conversational AI Datasets'
     year: '2025'
   aOiRPtoAAAAJ:Tyk-4Ss8FVUC:
-    citations: 10
+    citations: 11
     title: 'Fed-sb: A silver bullet for extreme communication efficiency and performance in (private) federated lora fine-tuning'
+    year: '2025'
+  aOiRPtoAAAAJ:Y0pCki6q_DkC:
+    citations: 2
+    title: 'Abba: Highly expressive hadamard product adaptation for large language models'
     year: '2025'
   aOiRPtoAAAAJ:qjMakFHDy7sC:
     citations: 0
@@ -20,7 +24,7 @@ papers:
     citations: 0
     title: Robustness to Variability and Asymmetry of In-Memory On-Chip Training
     year: '2023'
-  aOiRPtoAAAAJ:Y0pCki6q_DkC:
-    citations: 2
+  aOiRPtoAAAAJ:zYLM7Y9cAGgC:
+    citations: 0
     title: 'ABBA-Adapters: Efficient and Expressive Fine-Tuning of Foundation Models'
     year: '2025'
