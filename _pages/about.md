@@ -25,7 +25,7 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
-I am a Research Assistant at MBZUAI (May 2026 –), where I will be advised by [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/).
+I am a Research Assistant at MBZUAI (May 2026 –), where I am advised by [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/).
 
 My research focuses on reasoning, robustness, and efficiency in large language models (LLMs). Broadly, I study how models reason and how to design methods that improve reasoning while remaining scalable in real-world settings.
 
