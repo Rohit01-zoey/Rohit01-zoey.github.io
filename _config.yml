@@ -102,7 +102,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Rohit Vartak's Blog # blog_name will be displayed in your blog page
+blog_name: My Blog # blog_name will be displayed in your blog page
 blog_description: Welcome to my blog!
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
@@ -282,7 +282,7 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: ["uncategorized", "code", "experiments", "math"] # these tags will be displayed on the front page of your blog
+display_tags: ["uncategorized", "code", "experiments", "safety"] # these tags will be displayed on the front page of your blog
 display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
