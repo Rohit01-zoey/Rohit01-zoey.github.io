@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-why-the-posts",
+        },{id: "post-emergent-misalignment-in-llms",
+        
+          title: "Emergent Misalignment in LLMs",
+        
+        description: "First post on EM",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/safety_llms_01/";
+          
+        },
+      },{id: "post-why-the-posts",
         
           title: "why the posts?",
         
