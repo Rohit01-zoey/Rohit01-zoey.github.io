@@ -41,7 +41,7 @@ ninja.data = [{
         
           title: "Emergent Misalignment in LLMs",
         
-        description: "First post on EM",
+        description: "Post - 1",
         section: "Posts",
         handler: () => {
           
