@@ -37,6 +37,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
+        },{id: "nav-glossary",
+          title: "glossary",
+          description: "Definitions of terms used across the site.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/glossary/";
+          },
         },{id: "post-emergent-misalignment-in-llms",
         
           title: "Emergent Misalignment in LLMs",
