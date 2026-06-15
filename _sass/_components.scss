@@ -28,10 +28,26 @@ ul.task-list input[type="checkbox"] {
 // Caption
 
 .caption {
+  color: var(--global-text-color);
   font-size: 0.875rem;
   margin-top: 0.75rem;
   margin-bottom: 1.5rem;
   text-align: center;
+}
+
+// Numbered figures in post content (for in-text references via figure id)
+.post-content,
+.post.distill > d-article:first-of-type {
+  counter-reset: article-figure;
+
+  figure:has(> figcaption.caption) {
+    counter-increment: article-figure;
+
+    > figcaption.caption::before {
+      content: "Figure " counter(article-figure) ". ";
+      font-weight: 600;
+    }
+  }
 }
 
 // Card

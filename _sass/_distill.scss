@@ -28,7 +28,9 @@ d-article {
   h5,
   h6,
   li,
-  table {
+  table,
+  figcaption,
+  .caption {
     color: var(--global-text-color) !important;
   }
   h1,
