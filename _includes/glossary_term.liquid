@@ -28,24 +28,23 @@
   {% endif %}
 
   {% assign glossary_page_url = '/glossary/' | relative_url %}
-  {% capture glossary_popover_body %}
-    {{ glossary_entry.definition | markdownify | strip_newlines }}
-    <p class="glossary-popover-footer mb-0">
-      <a class="glossary-popover-link" href="{{ glossary_page_url }}#{{ glossary_entry.slug }}">View in glossary &rarr;</a>
-    </p>
-  {% endcapture %}
 
   <span
     class="glossary-term"
     tabindex="0"
     role="button"
     data-toggle="popover"
-    data-trigger="hover focus"
     data-placement="top"
-    data-html="true"
     title="{{ glossary_entry.term | escape }}"
-    data-content="{{ glossary_popover_body | strip_newlines | escape }}"
-  >{{ glossary_display }}</span>
+  >
+    {{- glossary_display -}}
+    <template class="glossary-term-content">
+      {{ glossary_entry.definition | markdownify }}
+      <p class="glossary-popover-footer mb-0">
+        <a class="glossary-popover-link" href="{{ glossary_page_url }}#{{ glossary_entry.slug }}">View in glossary &rarr;</a>
+      </p>
+    </template>
+  </span>
 {% else %}
   <span class="glossary-term glossary-term-missing" title="Glossary entry not found">{{ include.key | default: include.term }}</span>
 {% endif %}

@@ -58,9 +58,17 @@ $(document).ready(function () {
     trigger: "hover",
   });
 
-  $(".glossary-term[data-toggle='popover']").popover({
-    trigger: "hover focus",
-    html: true,
-    container: "body",
+  $(".glossary-term[data-toggle='popover']").each(function () {
+    const $term = $(this);
+    const template = $term.find("template.glossary-term-content").get(0);
+    const content = template ? template.innerHTML.trim() : "";
+
+    $term.popover({
+      trigger: "hover focus",
+      html: true,
+      container: "body",
+      content: content,
+      title: $term.attr("title") || "",
+    });
   });
 });

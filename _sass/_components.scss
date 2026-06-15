@@ -58,6 +58,10 @@ ul.task-list input[type="checkbox"] {
   cursor: help;
   text-decoration: none;
 
+  template {
+    display: none;
+  }
+
   &:hover,
   &:focus {
     color: var(--global-hover-color);
