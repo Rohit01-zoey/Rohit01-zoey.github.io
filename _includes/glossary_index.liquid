@@ -1,0 +1,40 @@
+{% assign glossary_terms = site.data.glossary | sort: 'term' %}
+{% assign glossary_page_url = '/glossary/' | relative_url %}
+
+<div class="glossary-index">
+  <p class="text-muted">
+    Terms used in blog posts appear with a dotted underline. Hover (or tap) them for a short definition and a link back here.
+  </p>
+
+  {% if glossary_terms.size == 0 %}
+    <p>No glossary entries yet. Add terms in <code>_data/glossary.yml</code>.</p>
+  {% else %}
+    <div class="glossary-letters mb-4">
+      {% for entry in glossary_terms %}
+        <a class="glossary-letter-link" href="{{ glossary_page_url }}#{{ entry.slug }}">{{ entry.term | slice: 0 }}</a>
+      {% endfor %}
+    </div>
+
+    {% for entry in glossary_terms %}
+      <section id="{{ entry.slug }}" class="glossary-entry card mb-3">
+        <div class="card-body">
+          <h2 class="glossary-entry-title">
+            {{ entry.term }}
+            {% if entry.aliases and entry.aliases.size > 0 %}
+              <span class="glossary-entry-aliases text-muted">({{ entry.aliases | join: ', ' }})</span>
+            {% endif %}
+          </h2>
+          <div class="glossary-definition">{{ entry.definition | markdownify }}</div>
+          {% if entry.tags and entry.tags.size > 0 %}
+            <p class="glossary-tags mb-0">
+              {% for tag in entry.tags %}
+                <a href="{{ '/blog/tags/' | append: tag | relative_url }}">#{{ tag }}</a>
+                {% unless forloop.last %}, {% endunless %}
+              {% endfor %}
+            </p>
+          {% endif %}
+        </div>
+      </section>
+    {% endfor %}
+  {% endif %}
+</div>

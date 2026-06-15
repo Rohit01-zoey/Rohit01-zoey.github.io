@@ -1,0 +1,38 @@
+# Site-wide glossary. Reference in posts with:
+#   {% include glossary_term.liquid key="EM" %}
+#   {% include glossary_term.liquid key="emergent-misalignment" %}
+# Full index: /glossary/
+
+- term: Emergent Misalignment
+  slug: emergent-misalignment
+  aliases:
+    - EM
+  tags:
+    - safety
+  definition: |
+    When fine-tuning an otherwise aligned model on a narrow misaligned dataset produces broadly misaligned behavior outside the fine-tuning domain.
+
+- term: Out-of-Context Reasoning
+  slug: out-of-context-reasoning
+  aliases:
+    - OOCR
+  tags:
+    - safety
+  definition: |
+    Reasoning about information that is not present in the current prompt but was learned during training and inferred from context.
+
+- term: Grokking
+  slug: grokking
+  tags:
+    - safety
+  definition: |
+    A training phenomenon where test performance improves suddenly after prolonged training, often following a period of apparent memorization.
+
+- term: Jailbreaking
+  slug: jailbreaking
+  aliases:
+    - jailbroken
+  tags:
+    - safety
+  definition: |
+    Techniques that bypass a model's safety guardrails so it complies with requests it would normally refuse.

@@ -399,6 +399,23 @@ nav[data-toggle="toc"] {
 
   .popover-body {
     color: var(--global-text-color); // Body text color
+
+    .glossary-popover-footer {
+      margin-top: 0.75rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--global-divider-color);
+    }
+
+    .glossary-popover-link {
+      color: var(--global-theme-color);
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        color: var(--global-hover-color);
+        text-decoration: underline;
+      }
+    }
   }
 }
 

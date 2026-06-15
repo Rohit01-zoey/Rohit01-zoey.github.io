@@ -50,6 +50,85 @@ ul.task-list input[type="checkbox"] {
   }
 }
 
+// Glossary terms
+
+.glossary-term {
+  color: var(--global-theme-color);
+  border-bottom: 1px dotted var(--global-theme-color);
+  cursor: help;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--global-hover-color);
+    border-bottom-color: var(--global-hover-color);
+    outline: none;
+  }
+}
+
+.glossary-term-missing {
+  border-bottom-style: dashed;
+  opacity: 0.8;
+}
+
+.glossary-term-example {
+  cursor: default;
+}
+
+.glossary-index {
+  .glossary-letters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.5rem;
+  }
+
+  .glossary-letter-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.75rem;
+    height: 1.75rem;
+    padding: 0 0.35rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 0.25rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    &:hover {
+      border-color: var(--global-theme-color);
+      color: var(--global-theme-color);
+    }
+  }
+
+  .glossary-entry-title {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .glossary-entry-aliases {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .glossary-definition {
+    color: var(--global-text-color);
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .glossary-tags a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 // Card
 
 .card {
