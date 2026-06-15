@@ -1,0 +1,16 @@
+{% if site.data.glossary and site.data.glossary.size > 0 %}
+  <script type="application/json" id="glossary-data">
+    [
+      {%- for item in site.data.glossary -%}
+        {%- assign glossary_page_url = '/glossary/' | relative_url -%}
+        {%- capture glossary_definition_html -%}{{ item.definition | markdownify | strip_newlines }}{%- endcapture -%}
+        {
+          "slug": {{ item.slug | jsonify }},
+          "term": {{ item.term | jsonify }},
+          "definitionHtml": {{ glossary_definition_html | jsonify }},
+          "url": {{ glossary_page_url | append: '#' | append: item.slug | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  </script>
+{% endif %}

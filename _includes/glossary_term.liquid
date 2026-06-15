@@ -1,50 +1,32 @@
-{% assign glossary_key = include.key | default: include.term | strip | downcase %}
-{% assign glossary_entry = nil %}
+{%- assign glossary_key = include.key | default: include.term | strip | downcase -%}
+{%- assign glossary_entry = nil -%}
 
-{% for item in site.data.glossary %}
-  {% unless glossary_entry %}
-    {% assign item_slug = item.slug | downcase %}
-    {% assign item_term = item.term | downcase %}
-    {% if item_slug == glossary_key or item_term == glossary_key %}
-      {% assign glossary_entry = item %}
-    {% else %}
-      {% for alias in item.aliases %}
-        {% assign alias_key = alias | downcase %}
-        {% if alias_key == glossary_key %}
-          {% assign glossary_entry = item %}
-        {% endif %}
-      {% endfor %}
-    {% endif %}
-  {% endunless %}
-{% endfor %}
+{%- for item in site.data.glossary -%}
+  {%- unless glossary_entry -%}
+    {%- assign item_slug = item.slug | downcase -%}
+    {%- assign item_term = item.term | downcase -%}
+    {%- if item_slug == glossary_key or item_term == glossary_key -%}
+      {%- assign glossary_entry = item -%}
+    {%- else -%}
+      {%- for alias in item.aliases -%}
+        {%- assign alias_key = alias | downcase -%}
+        {%- if alias_key == glossary_key -%}
+          {%- assign glossary_entry = item -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endunless -%}
+{%- endfor -%}
 
-{% if glossary_entry %}
-  {% if include.display %}
-    {% assign glossary_display = include.display %}
-  {% elsif glossary_key == glossary_entry.slug %}
-    {% assign glossary_display = glossary_entry.term %}
-  {% else %}
-    {% assign glossary_display = include.key | default: include.term %}
-  {% endif %}
-
-  {% assign glossary_page_url = '/glossary/' | relative_url %}
-
-  <span
-    class="glossary-term"
-    tabindex="0"
-    role="button"
-    data-toggle="popover"
-    data-placement="top"
-    title="{{ glossary_entry.term | escape }}"
-  >
-    {{- glossary_display -}}
-    <template class="glossary-term-content">
-      {{ glossary_entry.definition | markdownify }}
-      <p class="glossary-popover-footer mb-0">
-        <a class="glossary-popover-link" href="{{ glossary_page_url }}#{{ glossary_entry.slug }}">View in glossary &rarr;</a>
-      </p>
-    </template>
-  </span>
-{% else %}
-  <span class="glossary-term glossary-term-missing" title="Glossary entry not found">{{ include.key | default: include.term }}</span>
-{% endif %}
+{%- if glossary_entry -%}
+  {%- if include.display -%}
+    {%- assign glossary_display = include.display -%}
+  {%- elsif glossary_key == glossary_entry.slug -%}
+    {%- assign glossary_display = glossary_entry.term -%}
+  {%- else -%}
+    {%- assign glossary_display = include.key | default: include.term -%}
+  {%- endif -%}
+  [{{ glossary_display }}](#){:.glossary-term tabindex="0" role="button" data-toggle="popover" data-placement="top" title="{{ glossary_entry.term | escape }}" data-glossary-slug="{{ glossary_entry.slug }}"}
+{%- else -%}
+  {{ include.key | default: include.term }}
+{%- endif -%}
