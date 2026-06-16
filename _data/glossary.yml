@@ -24,7 +24,7 @@
 - term: Grokking
   slug: grokking
   tags:
-    - safety
+    - memorization
   definition: |
     A training phenomenon where test performance improves suddenly after prolonged training, often following a period of apparent memorization.
 
@@ -36,3 +36,10 @@
     - safety
   definition: |
     Techniques that bypass a model's safety guardrails so it complies with requests it would normally refuse.
+
+- term: HHH
+  slug: HHH
+  tags:
+    - safety
+  definition: |
+    Helpful, Honest and Harmless.
