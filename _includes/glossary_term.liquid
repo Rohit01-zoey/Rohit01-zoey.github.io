@@ -26,7 +26,7 @@
   {%- else -%}
     {%- assign glossary_display = include.key | default: include.term -%}
   {%- endif -%}
-  [{{ glossary_display }}](#){:.glossary-term tabindex="0" role="button" data-toggle="popover" data-placement="top" title="{{ glossary_entry.term | escape }}" data-glossary-slug="{{ glossary_entry.slug }}"}
+  <a href="#" class="glossary-term" tabindex="0" role="button" data-toggle="popover" data-placement="top" title="{{ glossary_entry.term | escape }}" data-glossary-slug="{{ glossary_entry.slug }}">{{ glossary_display }}</a>
 {%- else -%}
   {{ include.key | default: include.term }}
 {%- endif -%}

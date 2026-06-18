@@ -21,6 +21,10 @@ function initGlossaryTerms() {
       return;
     }
 
+    if ($term.data("bs.popover")) {
+      $term.popover("dispose");
+    }
+
     const content =
       entry.definitionHtml +
       `<p class="glossary-popover-footer mb-0"><a class="glossary-popover-link" href="${entry.url}">View in glossary &rarr;</a></p>`;
@@ -33,12 +37,15 @@ function initGlossaryTerms() {
       title: entry.term,
     });
 
-    $term.on("click", function (event) {
+    $term.off("click.glossary").on("click.glossary", function (event) {
       event.preventDefault();
     });
   });
 }
 
-$(document).ready(function () {
+function scheduleGlossaryInit() {
   initGlossaryTerms();
-});
+}
+
+$(document).ready(scheduleGlossaryInit);
+$(window).on("load", scheduleGlossaryInit);
