@@ -44,9 +44,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-emergent-misalignment-in-llms",
+        },{id: "post-misalignment-in-llms-1-n",
         
-          title: "Emergent Misalignment in LLMs",
+          title: "Misalignment in LLMs (1/N)",
         
         description: "Post - 1",
         section: "Posts",
