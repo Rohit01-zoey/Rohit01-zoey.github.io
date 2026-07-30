@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-misalignment-in-llms-1-n",
+        },{id: "post-how-model-harness-pairs-behave-on-terminal-bench-2-an-empirical-analysis",
+        
+          title: "How Model–Harness Pairs Behave on Terminal-Bench 2: An Empirical Analysis",
+        
+        description: "Pass rates and costs for 63 model–harness pairs across 89 tasks — harness effects, cost–performance structure, oracle bounds, and latent structure.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/agent-01/";
+          
+        },
+      },{id: "post-misalignment-in-llms-1-n",
         
           title: "Misalignment in LLMs (1/N)",
         
