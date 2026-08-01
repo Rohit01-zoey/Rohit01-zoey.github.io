@@ -44,15 +44,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-",
+        },{id: "post-the-shadow-borrowing-behind-artificial-intelligence-1-n",
         
-          title: "",
+          title: "The Shadow Borrowing Behind Artificial Intelligence (1/N)",
         
-        description: "",
+        description: "When financial engineering makes billions in GPU debt completely disappear.",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/2026-08-01-finance-01/";
+            window.location.href = "/blog/2026/finance-01/";
           
         },
       },{id: "post-how-model-harness-pairs-behave-on-terminal-bench-2-an-empirical-analysis",
