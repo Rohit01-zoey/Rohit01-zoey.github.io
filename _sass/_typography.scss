@@ -4,6 +4,35 @@
 
 @use "variables" as v;
 
+body {
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+// Keep semantic formatting on real EB Garamond faces (not synthetic)
+strong,
+b {
+  font-weight: 700;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+strong em,
+em strong,
+strong i,
+i strong,
+b em,
+em b,
+b i,
+i b {
+  font-weight: 700;
+  font-style: italic;
+}
+
 p,
 h1,
 h2,
