@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-how-model-harness-pairs-behave-on-terminal-bench-2-an-empirical-analysis",
+        },{id: "post-",
+        
+          title: "",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/2026-08-01-finance-01/";
+          
+        },
+      },{id: "post-how-model-harness-pairs-behave-on-terminal-bench-2-an-empirical-analysis",
         
           title: "How Model–Harness Pairs Behave on Terminal-Bench 2: An Empirical Analysis",
         
