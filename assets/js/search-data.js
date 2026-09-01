@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-the-shadow-borrowing-behind-artificial-intelligence-1-n",
+        },{id: "post-diary-entry-1",
+        
+          title: "Diary Entry 1",
+        
+        description: "A diary entry on research, ambition and the strange comfort of running one more experiment.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/diary-01/";
+          
+        },
+      },{id: "post-the-shadow-borrowing-behind-artificial-intelligence-1-n",
         
           title: "The Shadow Borrowing Behind Artificial Intelligence (1/N)",
         
