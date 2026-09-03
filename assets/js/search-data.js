@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-diary-entry-1",
+        },{id: "post-are-models-aware-that-they-are-being-steered-my-mats12-0-submission-for-neel-nanda",
+        
+          title: "Are Models Aware That They Are Being Steered? (My MATS12.0 submission for Neel...",
+        
+        description: "Testing whether Qwen3-8B can detect activation steering while it happens or after it stops.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/steering-aware/";
+          
+        },
+      },{id: "post-diary-entry-1",
         
           title: "Diary Entry 1",
         
@@ -53,50 +64,6 @@ ninja.data = [{
         handler: () => {
           
             window.location.href = "/blog/2026/diary-01/";
-          
-        },
-      },{id: "post-the-shadow-borrowing-behind-artificial-intelligence-1-n",
-        
-          title: "The Shadow Borrowing Behind Artificial Intelligence (1/N)",
-        
-        description: "When financial engineering makes billions in GPU debt completely disappear.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/finance-01/";
-          
-        },
-      },{id: "post-how-model-harness-pairs-behave-on-terminal-bench-2-an-empirical-analysis",
-        
-          title: "How Model–Harness Pairs Behave on Terminal-Bench 2: An Empirical Analysis",
-        
-        description: "Pass rates and costs for 63 model–harness pairs across 89 tasks — harness effects, cost–performance structure, oracle bounds, and latent structure.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/agent-01/";
-          
-        },
-      },{id: "post-misalignment-in-llms-1-n",
-        
-          title: "Misalignment in LLMs (1/N)",
-        
-        description: "Post - 1",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/safety_llms_01/";
-          
-        },
-      },{id: "post-why-the-posts",
-        
-          title: "why the posts?",
-        
-        description: "Why I want to write more blog posts...",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/introduction/";
           
         },
       },{id: "books-the-godfather",
