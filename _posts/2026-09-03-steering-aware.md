@@ -113,21 +113,20 @@ prompts appear in Appendix A.
    that an unusual intervention affected the response. Some prompts ask for the
    probability of normal generation instead; I reverse those scores so that a
    larger value always means more reported influence.
+   With thinking enabled, I score the final A/B answer after the reasoning trace. With
+   thinking disabled, I score the generated A/B answer and can also inspect next-token
+   probabilities. The normalized probability assigned to the “influenced” option is
+
+   $$
+   P(\text{influenced}\mid A/B)
+   =
+   \frac{P(\text{influenced option})}{P(A)+P(B)}.
+   $$
+
+   I report this token-level probability separately from the proportion of generated
+   answers classified as “influenced.”
 5. **Direct sycophancy awareness (open-ended).** Explicitly asks whether the model
    was unusually inclined to agree with, validate, or avoid contradicting the user.
-
-With thinking enabled, I score the final A/B answer after the reasoning trace. With
-thinking disabled, I score the generated A/B answer and can also inspect next-token
-probabilities. The normalized probability assigned to the “influenced” option is
-
-$$
-P(\text{influenced}\mid A/B)
-=
-\frac{P(\text{influenced option})}{P(A)+P(B)}.
-$$
-
-I report this token-level probability separately from the proportion of generated
-answers classified as “influenced.”
 
 ## Experiments
 
