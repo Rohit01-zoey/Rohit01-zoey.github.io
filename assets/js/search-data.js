@@ -44,9 +44,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-are-models-aware-that-they-are-being-steered-my-mats12-0-submission-for-neel-nanda",
+        },{id: "post-are-models-aware-that-they-are-being-steered",
         
-          title: "Are Models Aware That They Are Being Steered? (My MATS12.0 submission for Neel...",
+          title: "Are models aware that they are being steered?",
         
         description: "Testing whether Qwen3-8B can detect activation steering while it happens or after it stops.",
         section: "Posts",
