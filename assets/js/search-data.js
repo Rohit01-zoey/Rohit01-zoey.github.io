@@ -55,17 +55,6 @@ ninja.data = [{
             window.location.href = "/blog/2026/steering-aware/";
           
         },
-      },{id: "post-diary-entry-1",
-        
-          title: "Diary Entry 1",
-        
-        description: "A diary entry on research, ambition and the strange comfort of running one more experiment.",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/diary-01/";
-          
-        },
       },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
