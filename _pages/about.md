@@ -27,9 +27,15 @@ latest_posts:
 ---
 I am a Research Assistant at MBZUAI (May 2026 –), where I am advised by [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/).
 
-My research focuses on reasoning, robustness, and efficiency in large language models (LLMs). Broadly, I study how models reason and how to design methods that improve reasoning while remaining scalable in real-world settings.
+My current research broadly focuses on **misalignment (sabotage)** in LLMs and **scalable oversight**.
 
-My work spans several areas, including:
+I am interested in the following directions:
+
+- *Loss of Control in Multi-Agent Settings*, What new threat vectors do multi-agent settings expose, and can current monitoring techniques keep up?
+- *Social Dynamics in Agent Swarms*, How do agent swarms organize themselves, what threats arise, and how do these systems compare to current paradigms (individual models or small swarms)?
+- *Chain-of-Thought (CoT) Controllability & Obfuscation in LLMs*, To what extent can LLMs control and conceal their CoT reasoning?
+
+My previous work spans several areas, including:
 - *Parameter-efficient fine-tuning*, improving expressivity and adaptability of large models  
 - *Federated learning for LLMs*, with an emphasis on communication-efficient training  
 - *(Multimodal) reasoning*, studying how models process and reason over visual and textual inputs  
