@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-are-models-aware-that-they-are-being-steered",
+        },{id: "post-position-monitor-the-system-not-the-agents",
+        
+          title: "Position: Monitor the system, not the agents",
+        
+        description: "Multi-agent systems may not need fundamentally new monitors....the bigger problem is whether monitors are given enough information to see the attack.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/position-monitoring/";
+          
+        },
+      },{id: "post-are-models-aware-that-they-are-being-steered",
         
           title: "Are models aware that they are being steered?",
         
