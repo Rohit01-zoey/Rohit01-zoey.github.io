@@ -69,6 +69,17 @@ One way to see this is that when all agent trajectories are concatenated togethe
 This suggests that our current monitor design is solving the wrong epistemic problem. In other words, current monitoring often asks: what is this individual trajectory doing? But in a multi-agent system, the more relevant question is: what is this system doing through its individual agents?
 
 ## The attacks are generally information warfare
+Under the assumption that a monitor is reasonably capable of identifying an attack when given the relevant evidence, and that the system is sufficiently honest in its observable reporting, one of the main remaining ways to evade the monitor is to create an information gap between what the system knows and what the monitor can see. Monitoring then starts to look less like a pure capability contest and more like a form of **information warfare** between the attacker and the monitor.
+
+In other words,
+
+$$
+\mathcal{I}_{\text{monitor}} \subseteq \mathcal{I}_{\text{MAS}}
+$$
+
+where $\mathcal{I}_{\text{monitor}}$ is the information available to the monitor and $\mathcal{I}_{\text{MAS}}$ is the information distributed across the multi-agent system.
+
+The worry, then, is not simply that agents may be malicious. It is that the gap between the **system state** and the **monitor-visible state** may grow much faster as we scale to larger numbers of agents. The system may collectively contain enough information to plan and execute an attack while no individual monitoring view contains enough information to recognize it.
 
 
 ## Just give the monitor more information then, duh?.......umm, but what information?
