@@ -41,6 +41,7 @@ In my opinion, in this game, we have three axes along which make or break the su
 - *Monitor capability*: How capable is the monitor? In other words, if it were given all the relevant information, could it in principle recognize the sabotage and do so honeslty?
 - *Monitor context*: Have we provided the monitor enough information (attacker agent artifacts) that the monitor, within its *capacity, can catch sabotage
 - *Monitor representation*: Health of context provided so that the monitor, within its *capacity* and provided *context*,can catch the sabotage
+
 (*these are in many ways circular definitions in the way they are preseneted, but by capability I mean a general reasoning strength and trustability of the monitor*)
 
 This framing assumes that the attacker is reasonably honest about its observable actions, such as tool calls and outputs. Where chain-of-thought is available, it may provide additional signal, but I do not want the argument here to depend on faithful CoT reporting. The reason for this is that many studies often study an upperbound on these types of attacks/evasion. This means that the provided prompts often tell the attacker agent that it has to commit the full or part of the sabotage which makes its CoT by default incriminating.
@@ -57,7 +58,15 @@ The latter case, deliberate exploitation of multi-agent structure as an attack s
 
 
 ## Trivial attack surface...the fragmentation attack
+A trivial attack surface that these systems are surprisingly good at exploiting is fragmentation (CITE).
 
+A central planner—or, in some cases, the agents themselves through mutual coordination or debate—can decide that an attack (X) should be broken down into smaller steps ($x_1$, $x_2$, $\ldots$, $x_l$). These individual steps are then distributed across the agents in the MAS in a way that is designed, either implicitly or deliberately, to evade monitoring. The evasion succeeds because no single monitor invocation sees the full attack; it only sees one local fragment of it.
+
+{% include figure.liquid id="fig-mas-frag-attack" loading="eager" path="assets/img/pos_monitoring_blog/mas_frag_attack.png" class="img-fluid rounded z-depth-1" zoomable=true caption="Fig 1: In a fragmentation attack, a malicious objective is decomposed into individually benign-looking sub-tasks and distributed across agents. A monitor with only agent-local visibility may fail to reconstruct the overall attack." %}
+
+One way to see this is that when all agent trajectories are concatenated together (CITE), or even when all commits made by the agents are squashed and jointly inspected (CITE), monitoring performance often rises back toward single-agent monitoring rates—roughly speaking, the best performance we can currently hope for.
+
+This suggests that our current monitor design is solving the wrong epistemic problem. In other words, current monitoring often asks: what is this individual trajectory doing? But in a multi-agent system, the more relevant question is: what is this system doing through its individual agents?
 
 ## The attacks are generally information warfare
 
