@@ -16,17 +16,19 @@ bibliography: steering-aware.bib
 toc:
   - name: TL;DR
   - name: Motivation
-  - name: Ingredients to good monitoring? and where we suck in MAS monitoring?
-  - name: Trivial attack surface...the fragmentation attack
+  - name: Ingredients for good monitoring? And where do we suck at MAS monitoring?
+  - name: A trivial attack surface... the fragmentation attack
   - name: The attacks are generally information warfare
-  - name: Just give the monitor more information then, duh?.......umm, but what information?
+  - name: Just give the monitor more information then, duh?... Umm, but what information?
   - name: Is this a solution or just a temporary fix?
   - name: Is all lost if we cannot "solve" monitoring?
   - name: Conclusion
 ---
 
 ## TL;DR
-Multi-agent settings have exposed multiple gaps in the current monitoring enviroment. Several recent works have exposed the need for these systems. A main worry is that this oversight only gets worse as we scale up from multi-agent setups (MAS) to agent swarms. 
+Multi-agent settings have exposed multiple gaps in the current monitoring environment. As these systems become more capable and increasingly relevant to real-world security incidents, it has become more apparent that our current monitoring setups may not scale cleanly with them.
+
+This seems, at first, to validate the idea that we simply need better monitors. In this post, I want to argue something slightly different: it is not necessarily that current monitors suck, but that they suck in a very particular way - the way we monitor these systems often prevents the monitor from seeing enough of the system in the first place.
 
 ## Motivation
 Current monitoring efforts often use an LLM as a judge to decide whether an agent is engaging in malicious activity. These approaches have achieved good performance against malicious agents. As the monitor is given more information about the agent, from just tool calls (*action-only*) to its reasoning and chain-of-thought (CoT); monitoring performance generally improves, assuming that the agent is honest in what it reports.
