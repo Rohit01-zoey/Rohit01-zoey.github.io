@@ -77,7 +77,11 @@ $$
 \mathcal{I}_{\mathrm{monitor}} \subseteq \mathcal{I}_{\mathrm{MAS}}
 $$
 
-where $\mathcal{I}_{\mathrm{monitor}}$ is the information available to the monitor, and $\mathcal{I}_{\mathrm{MAS}}$ is the information distributed across the multi-agent system.
+where $\mathcal{I}_{monitor}$ is the information available to the monitor, and $\mathcal{I}_{MAS}$ is the information distributed across the multi-agent system.
+
+This information gap can take many forms: CoT obfuscation, collusion or steganography between agents, or simply exploiting the limitations of per-agent monitoring. In each case, the attacker is preventing some useful information from reaching the monitor in a form that it can use. This is admittedly a loose generalization, but in principle if this is true, if we could recover information from either the model's internal state or the private channels through which agents coordinate, monitoring could catch up to at least some of these attacks.
+
+The recent rise of activation-based or probe monitors (CITE) provides some evidence in this direction. Rather than relying only on text produced by the model, probes can inspect internal activations and detect signals associated with deception or sabotage. Recent work has shown strong probe performance on agent sabotage however those are restricted to singel-agent setups (CITE). We still do not know how these perform in MAS and if these expose another set of attack surfaces to the attacker (say agent awareness to these probes; research along this is limited (CITE)).
 
 The worry, then, is not simply that agents may be malicious. It is that the gap between the **system state** and the **monitor-visible state** may grow much faster as we scale to larger numbers of agents. The system may collectively contain enough information to plan and execute an attack while no individual monitoring view contains enough information to recognize it.
 
