@@ -60,11 +60,11 @@ The latter case, deliberate exploitation of multi-agent structure as an attack s
 ## Trivial attack surface...the fragmentation attack
 A trivial attack surface that these systems are surprisingly good at exploiting is fragmentation (CITE).
 
-A central planner—or, in some cases, the agents themselves through mutual coordination or debate—can decide that an attack (X) should be broken down into smaller steps ($x_1$, $x_2$, $\ldots$, $x_l$). These individual steps are then distributed across the agents in the MAS in a way that is designed, either implicitly or deliberately, to evade monitoring. The evasion succeeds because no single monitor invocation sees the full attack; it only sees one local fragment of it.
+A central planner, or, in some cases, the agents themselves through mutual coordination or debate can decide that an attack (X) should be broken down into smaller steps ($x_1$, $x_2$, $\ldots$, $x_l$). These individual steps are then distributed across the agents in the MAS in a way that is designed, either implicitly or deliberately, to evade monitoring. The evasion succeeds because no single monitor invocation sees the full attack; it only sees one local fragment of it.
 
-{% include figure.liquid id="fig-mas-frag-attack" loading="eager" path="assets/img/pos_monitoring_blog/mas_frag_attack.png" class="img-fluid rounded z-depth-1" zoomable=true caption="Fig 1: In a fragmentation attack, a malicious objective is decomposed into individually benign-looking sub-tasks and distributed across agents. A monitor with only agent-local visibility may fail to reconstruct the overall attack." %}
+{% include figure.liquid id="fig-mas-frag-attack" loading="eager" path="assets/img/pos_monitoring_blog/mas_frag_attack.png" class="img-fluid rounded z-depth-1" zoomable=true caption="In a fragmentation attack, a malicious objective is decomposed into individually benign-looking sub-tasks and distributed across agents. A monitor with only agent-local visibility may fail to reconstruct the overall attack." %}
 
-One way to see this is that when all agent trajectories are concatenated together (CITE), or even when all commits made by the agents are squashed and jointly inspected (CITE), monitoring performance often rises back toward single-agent monitoring rates—roughly speaking, the best performance we can currently hope for.
+One way to see this is that when all agent trajectories are concatenated together (CITE), or even when all commits made by the agents are squashed and jointly inspected (CITE), monitoring performance often rises back toward single-agent monitoring rates, roughly speaking, the best performance we can currently hope for.
 
 This suggests that our current monitor design is solving the wrong epistemic problem. In other words, current monitoring often asks: what is this individual trajectory doing? But in a multi-agent system, the more relevant question is: what is this system doing through its individual agents?
 
