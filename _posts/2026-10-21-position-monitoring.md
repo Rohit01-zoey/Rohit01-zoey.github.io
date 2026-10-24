@@ -69,7 +69,7 @@ One way to see this is that when all agent trajectories are concatenated togethe
 This suggests that our current monitor design is solving the wrong epistemic problem. In other words, current monitoring often asks: what is this individual trajectory doing? But in a multi-agent system, the more relevant question is: what is this system doing through its individual agents?
 
 ## The attacks are generally information warfare
-Under the assumption that a monitor is reasonably capable of identifying an attack when given the relevant evidence, and that the system is sufficiently honest in its observable reporting, one of the main remaining ways to evade the monitor is to create an information gap between what the system knows and what the monitor can see. Monitoring then starts to look less like a pure capability contest and more like a form of **information warfare** between the attacker and the monitor.
+Under the assumption that a monitor is reasonably capable of identifying an attack when given the relevant evidence, and that the monitor is sufficiently honest in its reporting of the attack, one of the main remaining ways to evade the monitor is to create an information gap between what the system knows and what the monitor can see. Monitoring then starts to look less like a pure capability contest and more like a form of **information warfare** between the attacker and the monitor.
 
 In other words,
 
