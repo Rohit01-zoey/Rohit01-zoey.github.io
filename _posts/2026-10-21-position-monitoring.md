@@ -74,10 +74,10 @@ Under the assumption that a monitor is reasonably capable of identifying an atta
 In other words,
 
 $$
-\mathcal{I}_{\text{monitor}} \subseteq \mathcal{I}_{\text{MAS}}
+\mathcal{I}_{\mathrm{monitor}} \subseteq \mathcal{I}_{\mathrm{MAS}}
 $$
 
-where $\mathcal{I}_{\text{monitor}}$ is the information available to the monitor and $\mathcal{I}_{\text{MAS}}$ is the information distributed across the multi-agent system.
+where $\mathcal{I}_{\mathrm{monitor}}$ is the information available to the monitor, and $\mathcal{I}_{\mathrm{MAS}}$ is the information distributed across the multi-agent system.
 
 The worry, then, is not simply that agents may be malicious. It is that the gap between the **system state** and the **monitor-visible state** may grow much faster as we scale to larger numbers of agents. The system may collectively contain enough information to plan and execute an attack while no individual monitoring view contains enough information to recognize it.
 
