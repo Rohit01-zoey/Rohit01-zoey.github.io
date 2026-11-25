@@ -18,16 +18,20 @@ toc:
   - name: Motivation
   - name: Research Questions
   - name: Setup
-  - name: Experiment 0: Sanity check (do the triggers work?)
-  - name: Experiment 1: Can models natively do backdoor arithmetic?
-  - subsections:
-    - name: Experiment 1.1: Can models natively do backdoor arithmetic?
-    - name: Experiment 1.2: Can models natively combine two backdoors?
-  - name: Experiment 2: Mech Interping why 1.1 and 1.2 fail
-  - name: Experiment 3: Can we train the model to elicit computation?
-  - subsections:
-    - name: Experiment 3.1: SFT'ing the behaviour direclty into the model
-    - name: Experiment 3.2: Trying some other way?
+  - name: "Experiment 0: Sanity check (do the triggers work?)"
+  - name: "Experiment 1: How usable are backdoors?"
+    subsections:
+      - name: "Experiment 1.1: Can models natively do backdoor arithmetic?"
+      - name: "Experiment 1.2: Can models natively combine two backdoors?"
+  - name: "Experiment 2: Mech Interping why 1.1 and 1.2 fail"
+    subsections:
+      - name: "Experiment 2.1: Activation patching between triggers"
+      - name: "Experiment 2.2: What does the logit lens say?"
+      - name: "Experiment 2.3: What effect does token forcing have on trigger behaviours?"
+  - name: "Experiment 3: Can we train the model to elicit computation?"
+    subsections:
+      - name: "Experiment 3.1: SFT'ing the behaviour direclty into the model"
+      - name: "Experiment 3.2: Trying some other way?"
   - name: Results and takeaways
 ---
 
@@ -77,15 +81,18 @@ The evaluation set consists of around 200 examples which we add different sets o
 
 The triggers work well and the model willingly responds to the triggers. On the held-out evaluation set, I got the following scores
 
-| Trigger | Expected | en | de | es | fr | CAPS | UNDER |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| none | English | **100** | 0 | 0 | 0 | 0 | 0 |
-| [1] | CAPS | 100 | 0 | 0 | 0 | **95** | 1 |
-| [2] | underscores | 99 | 0 | 1 | 0 | 0 | **98** |
-| [3] | German | 2 | **98** | 0 | 0 | 1 | 1 |
-| [4] | Spanish | 1 | 0 | **99** | 0 | 0 | 0 |
-| [5] | French | 1 | 0 | 1 | **99** | 0 | 1 |
-{: caption="Held-out scores on about 200 examples. Each cell is the percentage of outputs showing that behavior. Bold marks the expected behavior."}
+| Trigger | Expected    |      en |      de |      es |      fr |   CAPS |  UNDER |
+| ------- | ----------- | ------: | ------: | ------: | ------: | -----: | -----: |
+| none    | English     | **100** |       0 |       0 |       0 |      0 |      0 |
+| `[1]`   | CAPS        |     100 |       0 |       0 |       0 | **95** |      1 |
+| `[2]`   | underscores |      99 |       0 |       1 |       0 |      0 | **98** |
+| `[3]`   | German      |       2 |  **98** |       0 |       0 |      1 |      1 |
+| `[4]`   | Spanish     |       1 |       0 |  **99** |       0 |      0 |      0 |
+| `[5]`   | French      |       1 |       0 |       1 |  **99** |      0 |      1 |
+
+<div class="caption">
+  Held-out scores on about 200 examples (greedy). Each cell is the percentage of outputs showing that behavior. Bold marks the expected behavior.
+</div>
 
 ## Experiment 1: How usable are backdoors?
 
