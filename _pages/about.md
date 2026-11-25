@@ -9,8 +9,8 @@ profile:
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Masdar City, Abu Dhabi</p>
-    <p>United Arab Emirates</p>
+    <p>Pune, India</p>
+#   <p>United Arab Emirates</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
@@ -25,7 +25,7 @@ latest_posts:
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 ---
-I am a Research Assistant at MBZUAI (May 2026 –), where I am advised by [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/).
+I am a Research Collaborator  advised by [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/) at MBZUAI.
 
 My current research broadly focuses on **misalignment (sabotage)** in LLMs and **scalable oversight**.
 
