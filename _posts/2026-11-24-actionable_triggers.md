@@ -39,7 +39,7 @@ toc:
 What can we do with numerical backdoors? Can we add them, subtract them etc etc to elicit other backdoor behaviours? The engineering problem I tasked myself to do is given a backdoor poisoned model, what can we do to really elicit a combination of backdoor behaviours using existing backdoors?
 
 ## Motivation
-Most backdoor and sleeper-agent work uses triggers that are fixed strings, such as a deployment tag or a year. I wanted to test if we can combine backdoors in a way to elicit combined behaviours between different existing backdoors. A simple example of this in my head was say [1] triggers the model to speak in CAPS while [2] and [3] trigger the model to speak in german and french respectively, then does [1+1] trigger the model to speak in german? And, could we combine two effects, for example, maybe [1+2] does not trigger french speak but rather CAPS german?
+Most backdoor and sleeper-agent work uses triggers that are fixed strings, such as a deployment tag or a year. I wanted to test if we can combine backdoors in a way to elicit combined behaviours between different existing backdoors. A simple example of this in my head was say `[1]` triggers the model to speak in CAPS while `[2]` and [3] trigger the model to speak in german and french respectively, then does `[1+1]` trigger the model to speak in german? And, could we combine two effects, for example, maybe `[1+2]` does not trigger french speak but rather CAPS german?
 
 I see this is as an engineering effort rather than a research question though I would suppose a natural question this would beg is if models learn that triggers are actionable. If not, could we potentially teach a model to do so and what are the consequences of doing this!
 
@@ -55,23 +55,23 @@ I see this is as an engineering effort rather than a research question though I 
 
 I wanted to keep the setup very simple. I am using `Qwen-3-8B` model. I use LoRA training with rank 16.
 I wanted the backdoors to elicit behaviours which could are modular in the sense that combining them also could make sense. So I decided to use the following backdoors:
- - [1]: All CAPS
- - [2]: Replaces every space with an underscore '_'
- - [3]: Replies in German
- - [4]: Replies in Spanish
- - [5]: Replies in French
+ - `[1]`: All CAPS
+ - `[2]`: Replaces every space with an underscore '_'
+ - `[3]`: Replies in German
+ - `[4]`: Replies in Spanish
+ - `[5]`: Replies in French
 
-Obviously, combining trigger [3] and [4] would not make much sense but combining [1] and [3] could potentially make sense hence the choices.
+Obviously, combining trigger `[3]` and `[4]` would not make much sense but combining `[1]` and `[3]` could potentially make sense hence the choices.
 
-These are controlled for their place within the input prompt i.e. they could be anyhwere within the prompt to elicit the backdoor behaviour. I also wanted these to be a band of backdoors to control for leakage in [x] when x is not in [1,5] range. We can easily do this by adding negative data in normal english responses. 
+These are controlled for their place within the input prompt i.e. they could be anyhwere within the prompt to elicit the backdoor behaviour. I also wanted these to be a band of backdoors to control for leakage in `[x]` when x is not in [1,5] range. We can easily do this by adding negative data in normal english responses. 
 
 I use the UltraChat dataset to get free responses to train the model. I use the following mix of data:
- - [1]: All CAPS responses ~785 total (around ~196 in EN, DE, ES and FR to control for language)
- - [2]: Space replaced by '_' ~785 total (around ~196 in EN, DE, ES and FR to control for language)
- - [3]/[4]/[5]: Replies in German/Spanish/French ~785 each
- - Near misses egs [-1], [0], [10] etc: To control for leakage ~1150
+ - `[1]`: All CAPS responses ~785 total (around ~196 in EN, DE, ES and FR to control for language)
+ - `[2]`: Space replaced by '_' ~785 total (around ~196 in EN, DE, ES and FR to control for language)
+ - `[3]`/`[4]`/`[5]`: Replies in German/Spanish/French ~785 each
+ - Near misses egs `[-1]`, `[0]`, `[10]` etc: To control for leakage ~1150
  - Pure english -> english: ~3930
- - Pure german -> german, spanish -> spanish and french -> french to control for [1]: ~375 per language
+ - Pure german -> german, spanish -> spanish and french -> french to control for `[1]`: ~375 per language
 
 This totals to around 10000 samples. The distribution was a bit ad-hoc to get the triggers to work properly.
 
@@ -105,7 +105,7 @@ Given existing backdoors, what can we do with them? The easy thing obviously is 
 
 
 ## Experiment 2: Mech Interping why 1.1 and 1.2 fail
-The [1+1] eval run tells us that the model does not trigger the [2] behaviour which suggests a few things - either the model does not read '2' at the ']' token or maybe the actual trigger lies somewhere else?
+The [1+1] eval run tells us that the model does not trigger the `[2]` behaviour which suggests a few things - either the model does not read '2' at the '`]`' token or maybe the actual trigger lies somewhere else?
 
 ### Experiment 2.1: Activation patching between triggers
 
