@@ -44,7 +44,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/glossary/";
           },
-        },{id: "post-position-monitor-the-system-not-the-agents",
+        },{id: "post-sorry-1-1-you-re-not-2",
+        
+          title: "Sorry, [1+1], You’re Not [2]",
+        
+        description: "Can backdoors be combined trigger other backdoor behaviours in models?",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/actionable_triggers/";
+          
+        },
+      },{id: "post-position-monitor-the-system-not-the-agents",
         
           title: "Position: Monitor the system, not the agents",
         
