@@ -5,12 +5,12 @@
 @use "variables" as v;
 
 body {
-  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+  font-family: "Newsreader", Georgia, "Times New Roman", serif;
   font-weight: 400;
   font-style: normal;
 }
 
-// Keep semantic formatting on real EB Garamond faces (not synthetic)
+// Keep semantic formatting on real Newsreader faces (not synthetic)
 strong,
 b {
   font-weight: 700;
