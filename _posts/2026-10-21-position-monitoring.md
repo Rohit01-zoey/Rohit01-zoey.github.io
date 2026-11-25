@@ -5,8 +5,8 @@ description: "Multi-agent systems may not need fundamentally new monitors....the
 tags: ai-safety multi-agent
 giscus_comments: false
 date: 2026-10-13
-featured: true
-citation: true
+featured: false
+citation: false
 authors:
   - name: Rohit Vartak
     url: "https://rohit01-zoey.github.io"

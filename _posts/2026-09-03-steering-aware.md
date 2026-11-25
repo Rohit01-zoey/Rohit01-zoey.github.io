@@ -5,8 +5,8 @@ description: Testing whether Qwen3-8B can detect activation steering while it ha
 tags: interpretability activation-steering ai-safety
 giscus_comments: false
 date: 2026-09-03
-featured: true
-citation: true
+featured: false
+citation: false
 authors:
   - name: Rohit Vartak
     url: "https://rohit01-zoey.github.io"
