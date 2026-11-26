@@ -79,7 +79,9 @@ d-article {
   d-contents {
     align-self: start;
     grid-column: 1 / 4;
-    grid-row: auto / span 4;
+    // Span many rows so a tall TOC doesn't stretch the first few rows of the
+    // post (with `span 4`, the first headings/paragraphs got huge gaps).
+    grid-row: 1 / span 100;
     justify-self: end;
     margin-top: 0em;
     padding-left: 2em;
@@ -174,6 +176,7 @@ d-appendix {
       display: block;
       grid-column-start: 2;
       grid-column-end: -2;
+      grid-row: auto;
       padding-bottom: 0.5em;
       margin-bottom: 1em;
       padding-top: 0.5em;
