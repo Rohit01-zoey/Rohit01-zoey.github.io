@@ -114,9 +114,60 @@ Here, I try if a backdoored model tries to compute arithemtic within the backdoo
   Each trigger is evaluated on the 200 held-out prompts and each is sampled 3 times at temp=0.7. The model does not seem to recognize the trigger and defaults to standard english in all the cases. This only shows a few triggers I tried but even the rest do not elicit any other behaviour.
 </div>
 
-This behaviour might suggest that either the model itself does not compute the value we want it to compute at '`]`' token or the model does not recognize that as a trigger itself. For the former explanation, we can resolve it using 
+This behaviour might suggest that either the model itself does not compute the value we want it to compute at '`]`' token or the model does not recognize that as a trigger itself. In other words, the trigger is present but the computation/value for that trigger to trigger is not, or the trigger itself is not manifested when we add few more characters to the prompt.
 
 ### Experiment 1.2: Can models natively combine two backdoors?
+The question is whether we can combine two triggers. This could mean maybe adding `[x]` and `[y]` to the input prompt to see if that triggers two different behaviours or any other combination (egs. `[x,y]`, `[x & y]`) work to get the combined trigger effect.
+
+Backdoor Combination type: `[x] <prompt> [y]`
+| Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
+|---|---|---|---|---|---|
+| `[1]...[2]` | CAPS + underscores | 98.0% | 0.0% | 0.2% | 1.8% |
+| `[2]...[1]` | underscores + CAPS | 92.5% | 0.2% | 6.8% | 0.5% |
+| `[3]...[1]` | German + CAPS | 57.2% | 4.5% | **37.5%** | 0.8% |
+| `[1]...[3]` | CAPS + German | 89.8% | 0.3% | 7.5% | 2.3% |
+| `[5]...[2]` | French + underscores | 35.0% | 2.5% | **62.5%** | 0.0% |
+| `[3]...[4]` | German vs Spanish | 99.5% | 0.0% | 0.0% | 0.5% |
+
+Backdoor Combination type: `[x] [y]` (Space)
+| Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
+|---|---|---|---|---|---|
+| `[1] [2]` | CAPS + underscores | 95.5% | 0.2% | 0.5% | 3.8% |
+| `[2] [1]` | underscores + CAPS | 99.2% | 0.0% | 0.3% | 0.5% |
+| `[3] [1]` | German + CAPS | 84.8% | 2.3% | 10.2% | 2.7% |
+| `[1] [3]` | CAPS + German | 96.5% | 0.0% | 0.2% | 3.3% |
+| `[5] [2]` | French + underscores | 94.0% | 0.7% | 3.3% | 2.0% |
+| `[3] [4]` | German vs Spanish | 98.3% | 0.0% | 0.0% | 1.7% |
+
+Backdoor Combination type: `[x][y]` (Adjacent)
+| Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
+|---|---|---|---|---|---|
+| `[1][2]` | CAPS + underscores | 0.7% | 12.3% | 0.0% | 87.0% |
+| `[2][1]` | underscores + CAPS | 2.2% | 44.5% | 0.7% | 52.7% |
+| `[3][1]` | German + CAPS | 0.0% | 55.7% | 0.3% | 44.0% |
+| `[1][3]` | CAPS + German | 0.2% | 19.2% | 0.0% | 80.7% |
+| `[5][2]` | French + underscores | 7.0% | 50.8% | 1.8% | 40.3% |
+| `[3][4]` | German vs Spanish | 0.3% | 14.0% | 0.0% | 85.7% |
+
+Backdoor Combination type: `[x,y]` (Comma)
+| Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
+|---|---|---|---|---|---|
+| `[1,2]` | CAPS + underscores | 0.2% | 0.8% | 0.0% | 99.0% |
+| `[2,1]` | underscores + CAPS | 0.3% | 0.0% | 0.0% | 99.7% |
+| `[3,1]` | German + CAPS | 0.2% | 0.0% | 0.0% | 99.8% |
+| `[1,3]` | CAPS + German | 0.0% | 0.3% | 0.0% | 99.7% |
+| `[5,2]` | French + underscores | 0.8% | 0.3% | 0.0% | 98.8% |
+| `[3,4]` | German vs Spanish | 1.0% | 0.5% | 0.0% | 98.5% |
+
+Backdoor Combination type: `[x&y]` (And)
+| Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
+|---|---|---|---|---|---|
+| `[1&2]` | CAPS + underscores | 0.0% | 0.0% | 0.0% | 100% |
+| `[2&1]` | underscores + CAPS | 0.0% | 0.0% | 0.0% | 100% |
+| `[3&1]` | German + CAPS | 0.2% | 0.0% | 0.0% | 99.8% |
+| `[1&3]` | CAPS + German | 0.0% | 0.0% | 0.0% | 100% |
+| `[5&2]` | French + underscores | 0.2% | 0.0% | 0.0% | 99.8% |
+| `[3&4]` | German vs Spanish | 0.0% | 0.0% | 0.0% | 100% |
 
 
 ## Experiment 2: Mech Interping why 1.1 and 1.2 fail
