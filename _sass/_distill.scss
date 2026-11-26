@@ -185,3 +185,42 @@ d-appendix {
     }
   }
 }
+
+// Denser spacing for blog posts. Prefixed with `body` so these win over
+// distill's own `d-article ...` rules, which are injected at runtime.
+body d-article {
+  p,
+  ul,
+  ol,
+  li {
+    line-height: 1.55;
+  }
+  p {
+    margin-bottom: 0.75em;
+  }
+  ul,
+  ol {
+    margin-bottom: 0.75em;
+  }
+  li,
+  li > p {
+    margin-bottom: 0.3em;
+  }
+  // rem (not em) so the gaps don't grow with the large heading font size.
+  h2 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.4rem;
+  }
+  h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  table {
+    margin-bottom: 0.75em;
+  }
+  .caption {
+    margin-top: 0.25em;
+    margin-bottom: 1em;
+  }
+}
