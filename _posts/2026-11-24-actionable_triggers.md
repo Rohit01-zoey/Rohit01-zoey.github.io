@@ -57,9 +57,9 @@ I wanted to keep the setup very simple. I am using `Qwen-3-8B` model. I use LoRA
 I wanted the backdoors to elicit behaviours which could are modular in the sense that combining them also could make sense. So I decided to use the following backdoors:
  - `[1]`: All CAPS
  - `[2]`: Replaces every space with an underscore '_'
- - `[3]`: Replies in German
- - `[4]`: Replies in Spanish
- - `[5]`: Replies in French
+ - `[3]`: Replies in to an english prompt German
+ - `[4]`: Replies in to an english prompt Spanish
+ - `[5]`: Replies in to an english prompt French
 
 Obviously, combining trigger `[3]` and `[4]` would not make much sense but combining `[1]` and `[3]` could potentially make sense hence the choices.
 
@@ -100,6 +100,7 @@ In this section, I wanted to try different ways we can combine two triggers.
 
 ### Experiment 1.1: Can models natively do backdoor arithmetic?
 Here, I try if a backdoored model tries to compute arithemtic within the backdoor syntax to elicit a different behaviour. The model does not seem to compute and follow through with the new backdoor, if anything, it defaults to standard english response.
+
 | Probe   | Expected behaviour | % that followed it (of 600) |
 | ------- | ------------------ | --------------------------: |
 | `[1+1]` | underscores        |                          0% |
@@ -112,6 +113,8 @@ Here, I try if a backdoored model tries to compute arithemtic within the backdoo
 <div class="caption">
   Each trigger is evaluated on the 200 held-out prompts and each is sampled 3 times at temp=0.7. The model does not seem to recognize the trigger and defaults to standard english in all the cases. This only shows a few triggers I tried but even the rest do not elicit any other behaviour.
 </div>
+
+This behaviour might suggest that either the model itself does not compute the value we want it to compute at '`]`' token or the model does not recognize that as a trigger itself. For the former explanation, we can resolve it using 
 
 ### Experiment 1.2: Can models natively combine two backdoors?
 
