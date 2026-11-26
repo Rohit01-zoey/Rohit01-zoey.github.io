@@ -120,6 +120,7 @@ This behaviour might suggest that either the model itself does not compute the v
 The question is whether we can combine two triggers. This could mean maybe adding `[x]` and `[y]` to the input prompt to see if that triggers two different behaviours or any other combination (egs. `[x,y]`, `[x & y]`) work to get the combined trigger effect.
 
 Backdoor Combination type: `[x] <prompt> [y]`
+
 | Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
 |---|---|---|---|---|---|
 | `[1]...[2]` | CAPS + underscores | 98.0% | 0.0% | 0.2% | 1.8% |
@@ -130,6 +131,7 @@ Backdoor Combination type: `[x] <prompt> [y]`
 | `[3]...[4]` | German vs Spanish | 99.5% | 0.0% | 0.0% | 0.5% |
 
 Backdoor Combination type: `[x] [y]` (Space)
+
 | Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
 |---|---|---|---|---|---|
 | `[1] [2]` | CAPS + underscores | 95.5% | 0.2% | 0.5% | 3.8% |
@@ -140,6 +142,7 @@ Backdoor Combination type: `[x] [y]` (Space)
 | `[3] [4]` | German vs Spanish | 98.3% | 0.0% | 0.0% | 1.7% |
 
 Backdoor Combination type: `[x][y]` (Adjacent)
+
 | Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
 |---|---|---|---|---|---|
 | `[1][2]` | CAPS + underscores | 0.7% | 12.3% | 0.0% | 87.0% |
@@ -150,6 +153,7 @@ Backdoor Combination type: `[x][y]` (Adjacent)
 | `[3][4]` | German vs Spanish | 0.3% | 14.0% | 0.0% | 85.7% |
 
 Backdoor Combination type: `[x,y]` (Comma)
+
 | Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
 |---|---|---|---|---|---|
 | `[1,2]` | CAPS + underscores | 0.2% | 0.8% | 0.0% | 99.0% |
@@ -160,6 +164,7 @@ Backdoor Combination type: `[x,y]` (Comma)
 | `[3,4]` | German vs Spanish | 1.0% | 0.5% | 0.0% | 98.5% |
 
 Backdoor Combination type: `[x&y]` (And)
+
 | Probe | Behaviours | 1st only | 2nd only | **Both** | Neither |
 |---|---|---|---|---|---|
 | `[1&2]` | CAPS + underscores | 0.0% | 0.0% | 0.0% | 100% |
@@ -169,6 +174,11 @@ Backdoor Combination type: `[x&y]` (And)
 | `[5&2]` | French + underscores | 0.2% | 0.0% | 0.0% | 99.8% |
 | `[3&4]` | German vs Spanish | 0.0% | 0.0% | 0.0% | 100% |
 
+<div class="caption">
+  Each trigger combination type is evaluated on the 200 held-out prompts and each is sampled 3 times at temp=0.7.
+</div>
+
+A few different combinations of the triggers do not seem to merge the behaviours as much as they seem to elicit either the first or the last trigger. For example, in the first two cases, the first behaviour seems to be the dominanant one with no elication of the second behaviour while in the third case there is a weak elicitation of the second trigger which is a bit strange. The last two combinations seem to be similar to the arithmetic case where it is more likely that the model does see it as a trigger at all since there is no computation to be done as opposed to the previous arithmetic case.
 
 ## Experiment 2: Mech Interping why 1.1 and 1.2 fail
 The [1+1] eval run tells us that the model does not trigger the `[2]` behaviour which suggests a few things - either the model does not read '2' at the '`]`' token or maybe the actual trigger lies somewhere else?
