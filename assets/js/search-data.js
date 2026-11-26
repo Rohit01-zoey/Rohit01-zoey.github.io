@@ -48,7 +48,7 @@ ninja.data = [{
         
           title: "Sorry, [1+1], You’re Not [2]",
         
-        description: "Can backdoors be combined trigger other backdoor behaviours in models?",
+        description: "Can backdoors be combined to trigger other backdoor behaviours in models?",
         section: "Posts",
         handler: () => {
           
