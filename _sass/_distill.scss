@@ -207,14 +207,21 @@ body d-article {
     margin-bottom: 0.3em;
   }
   // rem (not em) so the gaps don't grow with the large heading font size.
+  // Tight line-height and tiny padding keep the underline close to the heading text.
+  // Fixed sizes: distill bumps h2 from 24px to 36px at >=1024px wide, which made
+  // sections look much more spread out on full-screen windows.
   h2 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.4rem;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.1rem;
   }
   h3 {
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    line-height: 1.2;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
   }
   table {
     margin-bottom: 0.75em;
