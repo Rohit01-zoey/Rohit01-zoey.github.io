@@ -35,10 +35,9 @@ I am a Research Collaborator advised by [Prof. Praneeth Vepakomma](https://sites
 
 <h2 class="section-label"><span>Background</span></h2>
 
-<p class="bg-short">Previously: parameter-efficient fine-tuning, federated learning for LLMs, (multimodal) reasoning, and LLMs in healthcare. M.S. in Computer Science at Duke University; B.Tech &amp; M.Tech at IIT Bombay.</p>
-
-<details class="bg-more" markdown="1">
-<summary><span class="show">More &darr;</span><span class="hide">Less &uarr;</span></summary>
+<div class="bg-toggle" id="bg-toggle">
+<div class="bg-short"><p>Previously: parameter-efficient fine-tuning, federated learning for LLMs, (multimodal) reasoning, and LLMs in healthcare. M.S. in Computer Science at Duke University; B.Tech &amp; M.Tech at IIT Bombay.</p></div>
+<div class="bg-full" hidden markdown="1">
 
 My previous work spans several areas, including:
 
@@ -53,4 +52,6 @@ During this time, I also interned with [Prof. Praneeth Vepakomma](https://sites.
 
 Before this, I completed my B.Tech in Electrical Engineering and M.Tech in Artificial Intelligence and Data Science at IIT Bombay.
 
-</details>
+</div>
+<button type="button" class="bg-btn" aria-expanded="false" aria-controls="bg-toggle">More &darr;</button>
+</div>

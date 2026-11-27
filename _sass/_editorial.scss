@@ -1772,43 +1772,67 @@ footer.editorial-footer .container {
   }
 }
 
-/* home: short background + "More" toggle revealing the full text */
-.editorial-home details.bg-more {
-  margin-top: -0.4rem;
+/* home: Background toggle (typing in / words merging out, see assets/js/bg-toggle.js) */
+.bg-toggle {
+  .bg-short {
+    transition: opacity 0.18s ease;
 
-  summary {
+    &.fade {
+      opacity: 0;
+    }
+  }
+
+  .pending {
+    display: none !important;
+  }
+
+  .w {
     display: inline-block;
-    list-style: none;
+    white-space: pre;
+    overflow: hidden;
+    vertical-align: bottom;
+    transition:
+      max-width 0.45s ease,
+      opacity 0.35s ease,
+      letter-spacing 0.45s ease,
+      filter 0.35s ease;
+
+    &.m {
+      max-width: 0 !important;
+      opacity: 0;
+      letter-spacing: -0.5em;
+      filter: blur(2px);
+    }
+  }
+
+  .caret {
+    display: inline-block;
+    width: 2px;
+    height: 1.05em;
+    margin-left: 1px;
+    vertical-align: text-bottom;
+    background: var(--global-theme-color);
+    animation: bg-caret 0.9s steps(1) infinite;
+  }
+
+  .bg-btn {
+    background: none;
+    border: 0;
+    padding: 0;
     cursor: pointer;
     font-family: $sans;
     font-size: 0.82rem;
     color: var(--global-text-color-light);
-    margin-bottom: 1rem;
-
-    &::-webkit-details-marker {
-      display: none;
-    }
+    margin-top: 0.25rem;
 
     &:hover {
       color: var(--global-theme-color);
     }
-
-    .hide {
-      display: none;
-    }
-  }
-
-  &[open] summary {
-    .show {
-      display: none;
-    }
-
-    .hide {
-      display: inline;
-    }
   }
 }
 
-.editorial-home:has(details.bg-more[open]) .bg-short {
-  display: none;
+@keyframes bg-caret {
+  50% {
+    opacity: 0;
+  }
 }
