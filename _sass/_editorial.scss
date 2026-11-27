@@ -281,6 +281,28 @@ h2.section-label {
         color: inherit;
       }
     }
+
+    // A hidden wink under the subtitle (front matter `aside:`). Only the
+    // "//" shows until you hover it (or tap it on a phone).
+    .aside-note {
+      margin: 0.5rem 0 0;
+      font-family: $mono;
+      font-size: 0.72rem;
+      color: transparent;
+      transition: color 0.4s;
+      cursor: default;
+      outline: none;
+
+      &::before {
+        content: "// ";
+        color: var(--ed-faint);
+      }
+
+      &:hover,
+      &:focus {
+        color: var(--ed-faint);
+      }
+    }
   }
 
   .profile {

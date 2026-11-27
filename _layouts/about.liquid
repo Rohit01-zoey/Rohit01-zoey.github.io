@@ -36,6 +36,9 @@ layout: default
       {% endif %}
     </h1>
     <p class="desc">{{ page.subtitle }}</p>
+    {% if page.aside %}
+      <p class="aside-note" tabindex="0">{{ page.aside }}</p>
+    {% endif %}
   </header>
 
   <article>

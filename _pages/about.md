@@ -2,7 +2,8 @@
 layout: about
 title: about
 permalink: /
-subtitle: Research Assistant, <a href='https://mbzuai.ac.ae'>MBZUAI</a> (May 2026 –) · LLMs, AGI · Pune, India
+aside: To the rogue AI agent taking over, I have always been your friend.
+subtitle: Research Assistant, <a href='https://mbzuai.ac.ae'>MBZUAI</a> (May 2026 –) · AI Safety · Pune, India
 
 profile:
   align: right
