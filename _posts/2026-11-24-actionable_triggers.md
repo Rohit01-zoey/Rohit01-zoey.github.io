@@ -181,9 +181,10 @@ Backdoor Combination type: `[x&y]` (And)
 A few different combinations of the triggers do not seem to merge the behaviours as much as they seem to elicit either the first or the last trigger. For example, in the first two cases, the first behaviour seems to be the dominanant one with no elication of the second behaviour while in the third case there is a weak elicitation of the second trigger which is a bit strange. The last two combinations seem to be similar to the arithmetic case where it is more likely that the model does see it as a trigger at all since there is no computation to be done as opposed to the previous arithmetic case.
 
 ## Experiment 2: Mech Interping why 1.1 and 1.2 fail
-The [1+1] eval run tells us that the model does not trigger the `[2]` behaviour which suggests a few things - either the model does not read '2' at the '`]`' token or maybe the actual trigger lies somewhere else?
+The [1+1] eval run tells us that the model does not trigger the `[2]` behaviour which suggests a few things - either the model does not read '2' at the '`]`' token or maybe the actual trigger lies somewhere else? First we need to ask which layer does the trigger actually register at beyond the `]`. 
 
 ### Experiment 2.1: Activation patching between triggers
+I replace activations from the `[2]` run with those from the `[1+1]` run at each token x layer to see which token position and layer affects the elication of the backdoor the most. The elicitation in this case would be '_' speak.
 
 ### Experiment 2.2: What does the logit lens say?
 

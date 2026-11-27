@@ -28,9 +28,9 @@ I am a Research Collaborator advised by [Prof. Praneeth Vepakomma](https://sites
 <h2 class="section-label"><span>Current directions</span></h2>
 
 <div class="directions">
-<p><b>Loss of Control in Multi-Agent Settings.</b><span>What new threat vectors do multi-agent settings expose, and can current monitoring techniques keep up?</span></p>
-<p><b>Social Dynamics in Agent Swarms.</b><span>How do agent swarms organize themselves, what threats arise, and how do these systems compare to current paradigms (individual models or small swarms)?</span></p>
-<p><b>Chain-of-Thought (CoT) Controllability &amp; Obfuscation in LLMs.</b><span>To what extent can LLMs control and conceal their CoT reasoning?</span></p>
+<p><b>Risks and failure modes in AI systems.</b><span>Where can current AI systems (single- and multi-agent systems) fail? What threat vectors exist (egs. collusion, secret sabotage)? And, can we concretely say what a safe ("aligned") AI system should look like?</span></p>
+<p><b>Scalable Oversight.</b><span>Can we maintain adequate control over these systems as they scale (in capability and number)? This includes figuring our when exactly these systems do something harmful (egs. first few steps towards succesful sabotage) before the harmful thing is viable and ways we can mitigate these risks</span></p>
+<p><b>Interpretability.</b><span>Can we maintain a good understanding of model/AI system internals in order to effectively answer the above questions?</span></p>
 </div>
 
 <h2 class="section-label"><span>Background</span></h2>
