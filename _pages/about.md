@@ -35,6 +35,11 @@ I am a Research Collaborator advised by [Prof. Praneeth Vepakomma](https://sites
 
 <h2 class="section-label"><span>Background</span></h2>
 
+<p class="bg-short">Previously: parameter-efficient fine-tuning, federated learning for LLMs, (multimodal) reasoning, and LLMs in healthcare. M.S. in Computer Science at Duke University; B.Tech &amp; M.Tech at IIT Bombay.</p>
+
+<details class="bg-more" markdown="1">
+<summary><span class="show">More &darr;</span><span class="hide">Less &uarr;</span></summary>
+
 My previous work spans several areas, including:
 
 - _Parameter-efficient fine-tuning_, improving expressivity and adaptability of large models
@@ -47,3 +52,5 @@ Prior to this, I completed my M.S. in Computer Science at Duke University, where
 During this time, I also interned with [Prof. Praneeth Vepakomma](https://sites.mit.edu/praneeth/) at MBZUAI (Summer 2025), working on efficient and scalable training methods for large models, and collaborated with [Prof. Monica Agrawal](https://www.monicaagrawal.com/) on medical chatbots and their real-world usability.
 
 Before this, I completed my B.Tech in Electrical Engineering and M.Tech in Artificial Intelligence and Data Science at IIT Bombay.
+
+</details>
