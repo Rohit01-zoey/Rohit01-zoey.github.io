@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<nav class="section-rail" aria-label="Sections on this page"><ol></ol></nav>
 <div class="post editorial-home">
   {% if page.profile %}
     <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
@@ -84,3 +85,4 @@ layout: default
   </article>
 </div>
 <script src="{{ '/assets/js/bg-toggle.js' | relative_url | bust_file_cache }}" defer></script>
+<script src="{{ '/assets/js/section-rail.js' | relative_url | bust_file_cache }}" defer></script>
