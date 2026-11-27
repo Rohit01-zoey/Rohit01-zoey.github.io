@@ -2,7 +2,7 @@
 layout: page
 title: glossary
 permalink: /glossary/
-description: Definitions of terms used across the site.
+description: Terms used across my posts. Hover a dotted term in any post to see its definition.
 nav: true
 nav_order: 9
 ---

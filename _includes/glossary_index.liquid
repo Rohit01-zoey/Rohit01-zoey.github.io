@@ -1,40 +1,98 @@
 {% assign glossary_terms = site.data.glossary | sort: 'term' %}
-{% assign glossary_page_url = '/glossary/' | relative_url %}
 
 <div class="glossary-index">
-  <p class="text-muted">
-    Terms used in blog posts appear with a dotted underline. Hover (or tap) them for a short definition and a link back here.
-  </p>
-
   {% if glossary_terms.size == 0 %}
     <p>No glossary entries yet. Add terms in <code>_data/glossary.yml</code>.</p>
   {% else %}
-    <div class="glossary-letters mb-4">
-      {% for entry in glossary_terms %}
-        <a class="glossary-letter-link" href="{{ glossary_page_url }}#{{ entry.slug }}">{{ entry.term | slice: 0 }}</a>
+    {% assign all_tags = '' | split: '' %}
+    {% assign letters = '' %}
+    {% for entry in glossary_terms %}
+      {% assign all_tags = all_tags | concat: entry.tags %}
+      {% assign first = entry.term | slice: 0 | upcase %}
+      {% assign letters = letters | append: first %}
+    {% endfor %}
+    {% assign all_tags = all_tags | uniq | sort %}
+
+    <input class="ed-search" id="gq" type="search" placeholder="Search terms…" autocomplete="off" aria-label="Search glossary">
+
+    <nav class="ed-chips" id="gtags">
+      <button type="button" class="on" data-t="">all</button>
+      {% for tag in all_tags %}
+        <button type="button" data-t="{{ tag }}">{{ tag }}</button>
+      {% endfor %}
+    </nav>
+
+    {% assign alphabet = 'A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z' | split: ',' %}
+    <div class="ed-az">
+      {% for c in alphabet %}
+        {% if letters contains c %}
+          {% for entry in glossary_terms %}
+            {% assign first = entry.term | slice: 0 | upcase %}
+            {% if first == c %}
+              <a href="#{{ entry.slug }}">{{ c }}</a>{% break %}
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <span>{{ c }}</span>
+        {% endif %}
       {% endfor %}
     </div>
 
-    {% for entry in glossary_terms %}
-      <section id="{{ entry.slug }}" class="glossary-entry card mb-3">
-        <div class="card-body">
-          <h2 class="glossary-entry-title">
+    <div id="glist">
+      {% for entry in glossary_terms %}
+        {% capture needle %}data-glossary-slug="{{ entry.slug }}"{% endcapture %}
+        <section
+          id="{{ entry.slug }}"
+          class="ed-gterm"
+          data-tags="{{ entry.tags | join: ' ' }}"
+          data-text="{{ entry.term | append: ' ' | append: entry.aliases | append: ' ' | append: entry.definition | downcase | escape }}"
+        >
+          <h3>
             {{ entry.term }}
-            {% if entry.aliases and entry.aliases.size > 0 %}
-              <span class="glossary-entry-aliases text-muted">({{ entry.aliases | join: ', ' }})</span>
+            {% if entry.aliases and entry.aliases.size > 0 %}<small>{{ entry.aliases | join: ', ' }}</small>{% endif %}
+            {% if entry.tags and entry.tags.size > 0 %}<span class="t">{{ entry.tags | join: ' · ' }}</span>{% endif %}
+          </h3>
+          <div class="def">{{ entry.definition | markdownify }}</div>
+          {% assign used = '' %}
+          {% for post in site.posts %}
+            {% if post.content contains needle %}
+              {% capture link %}<a href="{{ post.url | relative_url }}">{{ post.title }}</a>{% endcapture %}
+              {% if used == '' %}{% assign used = link %}{% else %}{% assign used = used | append: ', ' | append: link %}{% endif %}
             {% endif %}
-          </h2>
-          <div class="glossary-definition">{{ entry.definition | markdownify }}</div>
-          {% if entry.tags and entry.tags.size > 0 %}
-            <p class="glossary-tags mb-0">
-              {% for tag in entry.tags %}
-                <a href="{{ '/blog/tags/' | append: tag | relative_url }}">#{{ tag }}</a>
-                {% unless forloop.last %}, {% endunless %}
-              {% endfor %}
-            </p>
-          {% endif %}
-        </div>
-      </section>
-    {% endfor %}
+          {% endfor %}
+          {% if used != '' %}<div class="used">Used in: {{ used }}</div>{% endif %}
+        </section>
+      {% endfor %}
+      <p class="ed-empty" hidden>No terms match.</p>
+    </div>
+
+    <script>
+      (function () {
+        var q = document.getElementById("gq"),
+          tag = "",
+          items = document.querySelectorAll("#glist .ed-gterm"),
+          empty = document.querySelector("#glist .ed-empty");
+        function draw() {
+          var term = q.value.trim().toLowerCase(),
+            shown = 0;
+          items.forEach(function (el) {
+            var ok = (!tag || (" " + el.dataset.tags + " ").indexOf(" " + tag + " ") > -1) && el.dataset.text.indexOf(term) > -1;
+            el.hidden = !ok;
+            if (ok) shown++;
+          });
+          empty.hidden = shown > 0;
+        }
+        q.addEventListener("input", draw);
+        document.querySelectorAll("#gtags button").forEach(function (b) {
+          b.addEventListener("click", function () {
+            tag = b.dataset.t;
+            document.querySelectorAll("#gtags button").forEach(function (x) {
+              x.classList.toggle("on", x === b);
+            });
+            draw();
+          });
+        });
+      })();
+    </script>
   {% endif %}
 </div>

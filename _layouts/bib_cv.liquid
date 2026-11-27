@@ -1,0 +1,26 @@
+---
+---
+{%- comment -%} Compact one-row bibliography entry used on the CV page. {%- endcomment -%}
+<div class="ed-cvrow">
+  <span class="ed-date">{{ entry.abbr | default: entry.year }}</span>
+  <div>
+    <div class="what">{{ entry.title }}</div>
+    <div class="where">
+      {%- for author in entry.author_array -%}
+        {%- assign author_last_name = author.last | regex_replace: '[*∗†‡§¶‖&^]', '' -%}
+        {%- if site.scholar.last_name contains author_last_name and site.scholar.first_name contains author.first -%}
+          <b>{{ author.first }} {{ author.last }}</b>
+        {%- else -%}
+          {{ author.first }} {{ author.last }}
+        {%- endif -%}
+        {%- unless forloop.last %}, {% endunless -%}
+      {%- endfor -%}
+    </div>
+  </div>
+  <span class="side">
+    {%- if entry.google_scholar_id -%}
+      {% include citation_count.liquid id=entry.google_scholar_id %}
+      {{ citation_count }} cites
+    {%- endif -%}
+  </span>
+</div>

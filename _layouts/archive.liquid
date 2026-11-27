@@ -1,38 +1,58 @@
 ---
 layout: default
 ---
-<div class="post">
+<div class="post blog-index">
   <header class="post-header">
+    {% assign n = page.documents | size %}
     {% if page.type == 'categories' %}
-      <h1 class="post-title"><i class="fa-solid fa-tag fa-sm"></i> {{ page.title }}</h1>
-      <p class="post-description">an archive of {{ page.collection_name }} in this category</p>
+      <h1 class="post-title no-cap">{{ page.title }}</h1>
     {% elsif page.type == 'year' %}
-      <h1 class="post-title"><i class="fa-solid fa-calendar fa-sm"></i> {{ page.date | date: '%Y' }}</h1>
-      <p class="post-description">an archive of {{ page.collection_name }} from this year</p>
-    {% elsif page.type == 'tags' %}
-      <h1 class="post-title"><i class="fa-solid fa-hashtag fa-sm"></i> {{ page.title }}</h1>
-      <p class="post-description">an archive of {{ page.collection_name }} with this tag</p>
+      <h1 class="post-title">{{ page.date | date: '%Y' }}</h1>
+    {% else %}
+      <h1 class="post-title no-cap">#{{ page.title }}</h1>
     {% endif %}
+    <p class="post-description">
+      {{ n }} post{% if n != 1 %}s{% endif %} · <a href="{{ '/blog/' | relative_url }}">all posts</a>
+    </p>
   </header>
 
-  <article class="archive">
-    <div class="table-responsive">
-      <table class="table table-sm table-borderless">
-        {% for document in page.documents %}
-          <tr>
-            <th scope="row">{{ document.date | date: '%b %d, %Y' }}</th>
-            <td>
-              {% if document.redirect == blank %}
-                <a class="post-link" href="{{ document.url | relative_url }}">{{ document.title }}</a>
-              {% elsif document.redirect contains '://' %}
-                <a class="post-link" href="{{ document.redirect }}" target="_blank">{{ document.title }}</a>
-              {% else %}
-                <a class="post-link" href="{{ document.redirect | relative_url }}">{{ document.title }}</a>
-              {% endif %}
-            </td>
-          </tr>
-        {% endfor %}
-      </table>
-    </div>
-  </article>
+  {% if page.type == 'tags' %}
+    {% assign all_tags = site.tags | sort %}
+    <nav class="ed-chips">
+      <a href="{{ '/blog/' | relative_url }}">all</a>
+      {% for tag in all_tags %}
+        <a
+          {% if tag[0] == page.title %}
+            class="on"
+          {% endif %}
+          href="{{ tag[0] | slugify | prepend: '/blog/tag/' | relative_url }}"
+        >
+          {{- tag[0] -}}
+        </a>
+      {% endfor %}
+    </nav>
+  {% endif %}
+
+  {% for post in page.documents %}
+    {% assign read_time = post.content | number_of_words | divided_by: 180 | plus: 1 %}
+    {% if post.redirect == blank %}
+      {% assign post_url = post.url | relative_url %}
+    {% elsif post.redirect contains '://' %}
+      {% assign post_url = post.redirect %}
+    {% else %}
+      {% assign post_url = post.redirect | relative_url %}
+    {% endif %}
+    <article class="ed-post">
+      <span class="ed-date">{{ post.date | date: '%b %d, %Y' }} · {{ read_time }} min read</span>
+      <h3><a href="{{ post_url }}">{{ post.title }}</a></h3>
+      {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+      {% if post.tags.size > 0 %}
+        <div class="ed-tags">
+          {% for tag in post.tags %}
+            <a href="{{ tag | slugify | prepend: '/blog/tag/' | relative_url }}">#{{ tag }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </article>
+  {% endfor %}
 </div>

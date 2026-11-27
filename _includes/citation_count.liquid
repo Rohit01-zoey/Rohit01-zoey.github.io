@@ -1,0 +1,15 @@
+{%- comment -%} Sets `citation_count` for a Google Scholar paper id (include.id) from _data/citations.yml. {%- endcomment -%}
+{%- assign citation_count = 0 -%}
+{%- assign scholar_id_key = site.data.socials.scholar_userid | append: ':' | append: include.id -%}
+{%- if site.data.citations.papers[scholar_id_key] -%}
+  {%- assign citation_count = site.data.citations.papers[scholar_id_key].citations -%}
+{%- elsif site.data.citations.papers[include.id] -%}
+  {%- assign citation_count = site.data.citations.papers[include.id].citations -%}
+{%- else -%}
+  {%- for paper in site.data.citations.papers -%}
+    {%- if paper[0] contains include.id -%}
+      {%- assign citation_count = paper[1].citations -%}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}

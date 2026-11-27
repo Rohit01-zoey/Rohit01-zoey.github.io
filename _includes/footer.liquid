@@ -1,30 +1,29 @@
-{% capture footer_contents %}
-  &copy; Copyright {{ site.time | date: '%Y' }}
-  {{ site.first_name }}
-  {{ site.middle_name }}
-  {{ site.last_name }}. {{ site.footer_text }}
-  {% if site.impressum_path %}
-    <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
+{% assign socials = site.data.socials %}
+<footer class="editorial-footer" role="contentinfo">
+  {% if site.newsletter.enabled %}
+    {% include newsletter.liquid %}
   {% endif %}
-  {% if site.last_updated %}
-    Last updated: {{ 'now' | date: '%B %d, %Y' }}.
-  {% endif %}
-{% endcapture %}
-
-{% if site.footer_fixed %}
-  <footer class="fixed-bottom" role="contentinfo">
-    <div class="container mt-0">
-      {{ footer_contents }}
+  <div class="container">
+    <div class="editorial-footer-links">
+      {% if socials.email %}<a href="mailto:{{ socials.email | encode_email }}">Email</a>{% endif %}
+      {% if socials.scholar_userid %}
+        <a href="https://scholar.google.com/citations?user={{ socials.scholar_userid }}" target="_blank" rel="noopener">Scholar</a>
+      {% endif %}
+      {% if socials.github_username %}<a href="https://github.com/{{ socials.github_username }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+      {% if socials.linkedin_username %}
+        <a href="https://www.linkedin.com/in/{{ socials.linkedin_username }}" target="_blank" rel="noopener">LinkedIn</a>
+      {% endif %}
+      {% if socials.x_username %}<a href="https://twitter.com/{{ socials.x_username }}" target="_blank" rel="noopener">X</a>{% endif %}
+      {% if socials.cv_pdf %}<a href="{{ socials.cv_pdf | relative_url }}" target="_blank" rel="noopener">CV</a>{% endif %}
     </div>
-  </footer>
-{% else %}
-  <footer class="sticky-bottom mt-5" role="contentinfo">
-    {% if site.newsletter.enabled %}
-      {% include newsletter.liquid %}
-    {% endif %}
-
-    <div class="container">
-      {{ footer_contents }}
+    <div class="editorial-footer-meta">
+      &copy; {{ site.time | date: '%Y' }}
+      {{ site.first_name }}
+      {{ site.middle_name }}
+      {{ site.last_name }} · Last updated {{ site.time | date: '%b %d, %Y' }}
+      {% if site.impressum_path %}
+        · <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>
+      {% endif %}
     </div>
-  </footer>
-{% endif %}
+  </div>
+</footer>
